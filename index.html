@@ -1,0 +1,1478 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contalger • Gerador SPED Fiscal • Perfil A</title>
+  <meta name="description" content="Gerador SPED Fiscal Contalger • Perfil A, calibrado com arquivo validado no PVA." />
+  <style>
+:root{--navy:#0b2239;--navy2:#123c5a;--teal:#1c8a7a;--teal2:#e7f6f2;--bg:#f3f6f8;--card:#fff;--text:#13212d;--muted:#6b7a88;--line:#dfe6eb;--ok:#19724b;--warn:#9a6700;--bad:#b42318;--shadow:0 10px 28px rgba(11,34,57,.08)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);color:var(--text)}
+.app-shell{min-height:100vh;display:grid;grid-template-columns:250px minmax(0,1fr)}.sidebar{position:sticky;top:0;height:100vh;background:linear-gradient(180deg,var(--navy),#081827);color:white;padding:26px 18px;display:flex;flex-direction:column}.brand{display:flex;gap:12px;align-items:center;padding:0 6px 24px}.brand-mark{width:42px;height:42px;border-radius:12px;background:var(--teal);display:grid;place-items:center;font-weight:900;font-size:24px;box-shadow:0 5px 16px rgba(28,138,122,.35)}.brand strong{display:block;letter-spacing:.8px}.brand span{display:block;font-size:12px;color:#b6c7d5;margin-top:2px}.sidebar nav{display:grid;gap:7px}.nav{color:#c9d7e2;text-decoration:none;padding:11px 12px;border-radius:10px;font-size:14px}.nav:hover,.nav.active{background:rgba(255,255,255,.1);color:#fff}.side-note{margin-top:auto;border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:14px;background:rgba(255,255,255,.05)}.side-note strong{font-size:13px}.side-note p{font-size:12px;color:#bdcad4;line-height:1.45;margin:7px 0 0}
+main{padding:28px clamp(18px,4vw,58px) 70px;max-width:1500px;width:100%}.topbar{display:flex;justify-content:space-between;gap:20px;align-items:flex-start;margin-bottom:20px}.topbar h1{font-size:30px;margin:0 0 4px}.topbar p{margin:0;color:var(--muted)}.badge{background:#e9f0f5;color:var(--navy2);border:1px solid #d6e2e9;padding:8px 10px;border-radius:999px;font-size:12px;font-weight:700;white-space:nowrap}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px;margin-bottom:18px;box-shadow:var(--shadow)}.hero-card{border-top:4px solid var(--teal)}.section-head{display:flex;justify-content:space-between;gap:20px;align-items:center;margin-bottom:18px}.section-head h2{margin:2px 0 0;font-size:20px}.eyebrow{font-size:10px;font-weight:800;letter-spacing:1.2px;color:var(--teal)}.status{font-size:12px;font-weight:800;padding:7px 10px;border-radius:999px}.status.neutral{background:#eef2f5;color:#5c6975}.status.ok{background:#e8f6ef;color:var(--ok)}.status.warn{background:#fff7e5;color:var(--warn)}.status.bad{background:#feeeee;color:var(--bad)}
+.profile-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-bottom:18px}.profile-option input{display:none}.profile-option span{display:flex;flex-direction:column;border:1.5px solid var(--line);border-radius:14px;padding:16px;cursor:pointer;transition:.18s}.profile-option b{font-size:16px}.profile-option small{margin-top:4px;color:var(--muted)}.profile-option input:checked+span{border-color:var(--teal);background:var(--teal2);box-shadow:0 0 0 3px rgba(28,138,122,.08)}
+.dropzone{min-height:165px;border:2px dashed #b9cad4;border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;text-align:center;padding:20px;cursor:pointer;background:#fbfcfd;transition:.2s}.dropzone:hover,.dropzone.drag{border-color:var(--teal);background:#f2fbf8}.drop-icon{width:42px;height:42px;border-radius:12px;background:var(--teal2);color:var(--teal);display:grid;place-items:center;font-size:25px;font-weight:900}.dropzone span{font-size:13px;color:var(--muted)}.dropzone small{margin-top:8px;color:var(--navy2);font-weight:700}.import-info{margin-top:12px;padding:12px 14px;background:#f4f8fa;border-radius:11px;font-size:13px;color:#4b6170}
+.kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-bottom:16px}.kpi{border:1px solid var(--line);border-radius:14px;padding:15px}.kpi span{font-size:11px;color:var(--muted);text-transform:uppercase;font-weight:800;letter-spacing:.5px}.kpi strong{display:block;font-size:23px;margin-top:5px;color:var(--navy)}.two-col{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}.subcard{border:1px solid var(--line);border-radius:14px;padding:18px;background:#fff}.subcard h3{font-size:15px;margin:0 0 5px}.muted{font-size:12px;color:var(--muted);line-height:1.5}.metric-list{display:grid;gap:7px;margin-top:14px}.metric{display:flex;justify-content:space-between;gap:15px;padding:9px 0;border-bottom:1px dashed #e4eaee}.metric:last-child{border-bottom:0}.metric span{font-size:13px;color:#536472}.metric b{font-size:13px;text-align:right}.validation-list{display:grid;gap:8px;margin-top:12px}.validation{padding:10px 11px;border-radius:10px;font-size:12px;line-height:1.4}.validation.ok{background:#edf8f2;color:#176440}.validation.warn{background:#fff8e8;color:#855c08}.validation.bad{background:#fff0ef;color:#9f261d}.validation.soft{background:#fff8e8;color:#855c08;border:1px solid #f5d98b}.override-box{margin-top:12px;padding:13px 14px;border:1px solid #efd18a;background:#fffaf0;border-radius:12px;font-size:12px;line-height:1.45}.override-box label{display:flex;gap:9px;align-items:flex-start;cursor:pointer}.override-box input{margin-top:2px}.table-card{padding:0;overflow:hidden}.table-title{padding:17px 18px 10px}.table-wrap{overflow:auto}table{width:100%;border-collapse:collapse;font-size:12px}th,td{text-align:left;padding:11px 14px;border-top:1px solid var(--line);white-space:nowrap}th{background:#f7f9fa;color:#65727d;font-size:10px;text-transform:uppercase;letter-spacing:.5px}td .pill{padding:4px 7px;border-radius:999px;font-weight:700}.pill.ok{background:#e8f6ef;color:var(--ok)}.pill.warn{background:#fff6df;color:var(--warn)}.btn-mini{border:1px solid var(--line);background:#fff;border-radius:8px;padding:6px 9px;font-size:11px;font-weight:700;cursor:pointer;color:var(--navy)}.btn-mini:hover{background:#f4f7f8}.modal-overlay{position:fixed;inset:0;background:rgba(18,35,46,.48);display:flex;align-items:center;justify-content:center;z-index:9999;padding:18px}.modal-overlay.hidden{display:none}.modal-card{width:min(720px,100%);max-height:90vh;overflow:auto;background:#fff;border-radius:18px;box-shadow:0 22px 60px rgba(0,0,0,.25);padding:22px}.modal-card h3{margin:0 0 5px}.modal-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}.modal-grid .full{grid-column:1/-1}.modal-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:18px}.modal-actions button{padding:10px 14px;border-radius:10px;border:1px solid var(--line);font-weight:800;cursor:pointer}.modal-actions .primary{background:var(--navy);color:#fff;border-color:var(--navy)}
+.actions{display:flex;justify-content:flex-end;gap:10px;margin-top:16px}.btn{border:0;border-radius:11px;padding:12px 16px;font-weight:800;cursor:pointer}.btn:disabled{opacity:.45;cursor:not-allowed}.btn.primary{background:var(--teal);color:white}.btn.secondary{background:#eaf0f4;color:var(--navy)}.prototype-warning{margin-top:13px;padding:11px 13px;border-radius:10px;background:#fff8e8;color:#7a5a13;font-size:11px;line-height:1.45}
+.form-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.form-grid label{font-size:11px;font-weight:700;color:#536472}.form-grid input,.form-grid select{width:100%;margin-top:6px;padding:10px 11px;border:1px solid var(--line);border-radius:9px;background:white;color:var(--text);outline:none}.form-grid input:focus,.form-grid select:focus{border-color:var(--teal);box-shadow:0 0 0 3px rgba(28,138,122,.08)}.link-btn{border:0;background:transparent;color:var(--teal);font-weight:800;cursor:pointer}pre{max-height:520px;overflow:auto;background:#081827;color:#d9e8ef;border-radius:12px;padding:16px;font-size:11px;line-height:1.55;white-space:pre}.toast{position:fixed;right:20px;bottom:20px;background:#10283c;color:white;border-radius:11px;padding:12px 15px;font-size:12px;box-shadow:0 10px 30px rgba(0,0,0,.25);opacity:0;transform:translateY(15px);pointer-events:none;transition:.2s}.toast.show{opacity:1;transform:translateY(0)}.hidden{display:none!important}
+@media(max-width:980px){.app-shell{grid-template-columns:1fr}.sidebar{position:relative;height:auto;display:block}.sidebar nav,.side-note{display:none}main{padding:20px}.two-col{grid-template-columns:1fr}.form-grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:640px){.topbar{display:block}.badge{display:inline-block;margin-top:10px}.profile-row,.kpis,.form-grid{grid-template-columns:1fr}.actions{flex-direction:column}.btn{width:100%}}
+
+</style>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark">C</div>
+        <div><strong>CONTALGER</strong><span>Gerador SPED Fiscal • Perfil A</span></div>
+      </div>
+      <nav>
+        <a class="nav active" href="#gerar">Gerar SPED</a>
+        <a class="nav" href="#cadastro">Cadastro</a>
+        <a class="nav" href="#gerar">Planilha</a>
+        <a class="nav" href="#xmls">XMLs / ZIP</a>
+        <a class="nav" href="#conferencia">Conferência</a>
+        <a class="nav" href="#lancamentos">Lançamentos Bloco E</a>
+      </nav>
+      <div class="side-note">
+        <strong>Perfil A 3.6</strong>
+        <p>Perfil A estável + Bloco E editável + biblioteca de códigos do Piauí.</p>
+      </div>
+    </aside>
+
+    <main>
+      <header class="topbar">
+        <div>
+          <h1>Gerador SPED Fiscal • Perfil A</h1>
+          <p>Cadastro → planilha → XMLs → conferência → TXT</p>
+        </div>
+        <span class="badge">Leiaute 020 • Guia 3.2.4 • 2026</span>
+      </header>
+
+      <section id="cadastro" class="card">
+        <div class="section-head"><div><span class="eyebrow">ETAPA 1</span><h2>Perfil, empresa e contabilista</h2></div><div style="display:flex;align-items:center;gap:10px"><span id="profileStatus" class="status ok">Perfil A ativo</span><button class="link-btn" id="saveCompany">Salvar neste navegador</button></div></div>
+        <p class="muted">Cadastre uma vez os dados do estabelecimento e do contabilista. Nesta etapa o gerador trabalha somente com Perfil A. A versão 3.5 Perfil A bloqueia o TXT quando detectar campo obrigatório, registro filho ou vínculo indispensável sem informação segura.</p>
+
+        <div class="profile-row" style="grid-template-columns:1fr">
+          <label class="profile-option"><input type="radio" name="perfil" value="A" checked><span><b>Perfil A</b><small>Motor exclusivo nesta etapa • estrutura calibrada com SPED validado de 07/2026</small></span></label>
+        </div>
+
+        <div class="subcard" style="margin-top:14px">
+          <div class="section-head" style="margin-bottom:12px"><div><h3>Tipo de escrituração</h3><p class="muted" style="margin:5px 0 0">Escolha se o período possui movimento ou se será gerado um SPED sem movimento.</p></div><span id="movementStatus" class="status ok">Com movimento</span></div>
+          <div class="profile-row" style="margin-bottom:12px">
+            <label class="profile-option"><input type="radio" name="movimento" value="MOV" checked><span><b>Com movimento</b><small>Usa planilha de apuração + XMLs cadastrais</small></span></label>
+            <label class="profile-option"><input type="radio" name="movimento" value="SEM"><span><b>Sem movimento</b><small>Gera a escrituração sem documentos fiscais</small></span></label>
+          </div>
+          <div class="form-grid" id="semMovPeriodo" style="display:none">
+            <label>Competência - mês<select id="semMovMes">
+              <option value="1">01 - Janeiro</option><option value="2">02 - Fevereiro</option><option value="3">03 - Março</option><option value="4">04 - Abril</option><option value="5">05 - Maio</option><option value="6">06 - Junho</option><option value="7">07 - Julho</option><option value="8" selected>08 - Agosto</option><option value="9">09 - Setembro</option><option value="10">10 - Outubro</option><option value="11">11 - Novembro</option><option value="12">12 - Dezembro</option>
+            </select></label>
+            <label>Competência - ano<input id="semMovAno" type="number" min="2000" max="2099" value="2026"></label>
+          </div>
+          <div class="form-grid" style="margin-top:12px">
+            <label>Tratamento das devoluções de venda<select id="regraDevVenda">
+              <option value="REGIME" selected>Regime Especial - usa TIPO / Cliente</option>
+              <option value="NORMAL">Normal - sem Regime Especial</option>
+            </select></label>
+          </div>
+          <div class="import-info" style="margin-top:12px"><b>Regra de débito/crédito:</b> <b>Entradas</b> só geram crédito quando <b>TIPO = N</b>; nesse caso usa o ICMS destacado e inclui o <b>Crédito SN</b> quando houver. <b>Devoluções de vendas</b>: no <b>Regime Especial</b>, TIPO = N gera crédito e TIPO = RN/RST só gera crédito quando Cliente = 2; no modo <b>Normal</b>, somente <b>TIPO = N</b> gera crédito e o valor vem da coluna <b>ICMS NFe</b>; a coluna Cliente não interfere. <b>Saídas</b> usam <b>ICMS NFe</b> como débito. <b>Devoluções de compras</b> são <b>saídas</b> e usam o ICMS destacado da nota como débito. A apuração E110 é montada a partir dos mesmos valores gerados nos documentos, evitando divergência entre Bloco C/D e Bloco E.</div>
+        </div>
+
+
+        <div class="subcard" style="margin-top:14px">
+          <h3>Estabelecimento • Registros 0000 e 0005</h3>
+          <div class="form-grid" style="margin-top:12px">
+            <label>Razão social<input id="empresaNome" placeholder="Razão social"></label>
+            <label>Nome fantasia<input id="empresaFantasia" placeholder="Nome fantasia"></label>
+            <label>CNPJ<input id="empresaCnpj" placeholder="00.000.000/0000-00"></label>
+            <label>Inscrição Estadual<input id="empresaIe" placeholder="IE"></label>
+            <label>UF<input id="empresaUf" maxlength="2" placeholder="PI"></label>
+            <label>Código Município IBGE<input id="empresaMun" placeholder="2211001"></label>
+            <label>CEP<input id="empresaCep" placeholder="64000000"></label>
+            <label>Endereço<input id="empresaEnd" placeholder="Logradouro"></label>
+            <label>Número<input id="empresaNum" placeholder="Número"></label>
+            <label>Complemento<input id="empresaCompl" placeholder="Complemento"></label>
+            <label>Bairro<input id="empresaBairro" placeholder="Bairro"></label>
+            <label>Telefone<input id="empresaFone" placeholder="DDD + número"></label>
+            <label>Fax<input id="empresaFax" placeholder="Opcional"></label>
+            <label>E-mail<input id="empresaEmail" placeholder="email@empresa.com.br"></label>
+            <label>Finalidade<select id="codFin"><option value="0">0 - Original</option><option value="1">1 - Substituto</option></select></label>
+            <label>Atividade<select id="indAtiv"><option value="1">1 - Outros</option><option value="0">0 - Industrial/equiparado</option></select></label>
+            <label>Versão do leiaute<input id="codVer" value="020" maxlength="3"></label>
+          </div>
+        </div>
+
+        <div class="subcard" style="margin-top:14px">
+          <h3>Contabilista • Registro 0100</h3>
+          <div class="form-grid" style="margin-top:12px">
+            <label>Nome do contabilista<input id="contNome" placeholder="Nome do contabilista"></label>
+            <label>CPF<input id="contCpf" placeholder="000.000.000-00"></label>
+            <label>CRC<input id="contCrc" placeholder="CRC"></label>
+            <label>CNPJ do escritório<input id="contCnpj" placeholder="00.000.000/0000-00"></label>
+            <label>CEP<input id="contCep" placeholder="64000000"></label>
+            <label>Endereço<input id="contEnd" placeholder="Logradouro"></label>
+            <label>Número<input id="contNum" placeholder="Número"></label>
+            <label>Complemento<input id="contCompl" placeholder="Complemento"></label>
+            <label>Bairro<input id="contBairro" placeholder="Bairro"></label>
+            <label>Telefone<input id="contFone" placeholder="DDD + número"></label>
+            <label>Fax<input id="contFax" placeholder="Opcional"></label>
+            <label>E-mail<input id="contEmail" placeholder="email@contabilidade.com.br"></label>
+            <label>Código Município IBGE<input id="contMun" placeholder="2211001"></label>
+          </div>
+        </div>
+
+        <div class="subcard" style="margin-top:14px">
+          <h3>Recolhimento do período • Registro E116</h3>
+          <p class="muted" style="margin-top:6px">Só é utilizado quando houver ICMS a recolher. COD_OR, vencimento e código de receita são validados antes da geração.</p>
+          <div class="form-grid" style="margin-top:12px">
+            <label>Código da obrigação (COD_OR)<select id="e116CodOr"><option value="">Selecione</option><option value="000">000</option><option value="003">003</option><option value="004">004</option><option value="005">005</option><option value="006">006</option><option value="090">090</option></select></label>
+            <label>Data de vencimento<input id="e116Vcto" placeholder="DD/MM/AAAA"></label>
+            <label>Código de receita<input id="e116CodRec" placeholder="Código estadual"></label>
+          </div>
+        </div>
+
+        <div class="subcard" style="margin-top:14px">
+          <h3>Recolhimento ICMS-ST • Registro E250</h3>
+          <p class="muted" style="margin-top:6px">Usado somente quando a apuração E210 resultar em ICMS-ST a recolher. Para PI, a versão 3.0 preenche automaticamente os padrões do Perfil A validado: 002/113116 para recolhimento ST e 001/113001 para débito especial, com vencimento no dia 17 do mês seguinte. Os campos abaixo ficam como alternativa para outras UFs.</p>
+          <div class="form-grid" style="margin-top:12px">
+            <label>Código da obrigação ST (COD_OR)<select id="e250CodOr"><option value="">Selecione</option><option value="001">001</option><option value="002">002</option><option value="006">006</option><option value="999">999</option></select></label>
+            <label>Data de vencimento ST<input id="e250Vcto" placeholder="DD/MM/AAAA"></label>
+            <label>Código de receita ST<input id="e250CodRec" placeholder="Código estadual"></label>
+          </div>
+        </div>
+      </section>
+
+
+      <section id="lancamentos" class="card">
+        <div class="section-head">
+          <div><span class="eyebrow">MÓDULO NOVO</span><h2>Lançamentos manuais • Bloco E</h2></div>
+          <span class="status ok">Perfil A</span>
+        </div>
+        <p class="muted">Inclua ajustes, valores declaratórios, obrigações e complementos da apuração diretamente no gerador. Os lançamentos ficam salvos neste navegador e entram no TXT respeitando a hierarquia do Bloco E.</p>
+        <div class="actions" style="justify-content:flex-start">
+          <button class="btn primary" id="addManualE" type="button">+ Novo lançamento</button>
+          <button class="btn secondary" id="clearManualE" type="button">Limpar lançamentos</button>
+        </div>
+        <div class="subcard" style="margin-top:14px">
+          <div class="section-head" style="margin-bottom:10px">
+            <div><h3>Biblioteca de códigos do Piauí</h3><p class="muted" style="margin:5px 0 0">O gerador já traz códigos usuais do PI para E111, E115, E220 e códigos de receita de E116/E250. Você pode incluir ou editar códigos sem perder os lançamentos.</p></div>
+            <span id="codeCatalogStatus" class="status neutral">0 códigos</span>
+          </div>
+          <div class="form-grid">
+            <label>Aplicação
+              <select id="ccKind">
+                <option value="E111">E111 • Ajuste do ICMS próprio</option>
+                <option value="E115">E115 • Informação adicional</option>
+                <option value="E220">E220 • Ajuste do ICMS-ST</option>
+                <option value="REC">E116/E250 • Código de receita</option>
+              </select>
+            </label>
+            <label>Código<input id="ccCode" placeholder="Ex.: PI050039"></label>
+            <label style="grid-column:span 2">Descrição<input id="ccDesc" placeholder="Descrição para aparecer no seletor"></label>
+          </div>
+          <div class="prototype-warning" style="margin-top:10px"><b>PI:</b> os códigos iniciais foram organizados por registro e incluem receitas estaduais usuais. Para competências a partir de 04/2026, a Substituição das Saídas usa a receita <b>113116</b>. O gerador não escolhe automaticamente o enquadramento fiscal: você seleciona o código correspondente ao lançamento.</div><div class="actions" style="justify-content:flex-start;margin-top:10px">
+            <button class="btn secondary" id="ccSave" type="button">Salvar código</button>
+            <button class="btn secondary" id="ccReset" type="button">Restaurar códigos iniciais</button>
+          </div>
+          <div class="table-wrap" style="margin-top:12px"><table><thead><tr><th>Aplicação</th><th>Código</th><th>Descrição</th><th>Ação</th></tr></thead><tbody id="codeCatalogTable"></tbody></table></div>
+        </div>
+        <div class="subcard table-card" style="margin-top:14px">
+          <div class="table-title"><div><h3>Lançamentos cadastrados</h3><p class="muted">E110, E111/E112/E113, E115, E116, E210, E220/E230/E240 e E250.</p></div></div>
+          <div class="table-wrap"><table><thead><tr><th>Registro</th><th>UF / Pai</th><th>Código / Documento</th><th>Valor</th><th>Detalhes</th><th>Ação</th></tr></thead><tbody id="manualETable"></tbody></table></div>
+        </div>
+        <div class="prototype-warning"><b>Como funciona:</b> E111 e E220 alimentam automaticamente os campos correspondentes do E110/E210 conforme a natureza do código. E110 e E210 podem ser ajustados manualmente em modo PATCH. E115 é declaratório. E116/E250 usam COD_OR da Tabela 5.4 e códigos de receita do PI. A biblioteca inclui códigos usuais do Piauí, mas o enquadramento deve corresponder à operação efetivamente escriturada.</div>
+      </section>
+
+      <div id="manualEModal" class="modal-overlay hidden">
+        <div class="modal-card">
+          <h3 id="manualETitle">Novo lançamento do Bloco E</h3>
+          <p class="muted">Selecione os códigos no catálogo. Se precisar de um código ainda não cadastrado, escolha “Outro código”. Campos de valor aceitam vírgula ou ponto.</p>
+          <input id="meId" type="hidden">
+          <div class="modal-grid">
+            <label class="full">Registro
+              <select id="meReg">
+                <option value="E110">E110 - Apuração do ICMS próprio (ajuste manual)</option>
+                <option value="E111">E111 - Ajuste da apuração própria</option>
+                <option value="E112">E112 - Informação adicional do E111</option>
+                <option value="E113">E113 - Documento vinculado ao E111</option>
+                <option value="E115">E115 - Valor declaratório</option>
+                <option value="E116">E116 - Obrigação própria</option>
+                <option value="E210">E210 - Apuração ST por UF</option>
+                <option value="E220">E220 - Ajuste da apuração ST</option>
+                <option value="E230">E230 - Informação adicional do E220</option>
+                <option value="E240">E240 - Documento vinculado ao E220</option>
+                <option value="E250">E250 - Obrigação ST</option>
+              </select>
+            </label>
+          </div>
+          <div id="meFields" class="modal-grid"></div>
+          <div class="modal-actions"><button id="meCancel" type="button">Cancelar</button><button id="meSave" class="primary" type="button">Salvar lançamento</button></div>
+        </div>
+      </div>
+
+
+      <section id="gerar" class="card hero-card">
+        <div class="section-head">
+          <div><span class="eyebrow">ETAPA 2</span><h2>Planilha de apuração</h2></div>
+          <span class="status neutral">Planilha oficial da apuração</span>
+        </div>
+
+        <label class="dropzone" id="dropzone">
+          <input id="fileInput" type="file" accept=".xlsx,.xls" hidden>
+          <div class="drop-icon">⇧</div>
+          <strong>Arraste a planilha aqui</strong>
+          <span>ou clique para selecionar um arquivo Excel</span>
+          <small id="fileName">Nenhum arquivo selecionado</small>
+        </label>
+
+        <div id="importInfo" class="import-info hidden"></div>
+      </section>
+
+      <section id="xmls" class="card">
+        <div class="section-head">
+          <div><span class="eyebrow">ETAPA 3</span><h2>NF-e / NFC-e para cadastro</h2></div>
+          <span id="xmlStatus" class="status neutral">Nenhum XML importado</span>
+        </div>
+        <p class="muted">Importe um ZIP ou vários XMLs de NF-e/NFC-e. O sistema usa os XMLs para completar os cadastros dos participantes. Nas Devoluções de Compras, a operação é sempre escriturada como <b>saída</b>. Se a chave pertencer à própria empresa, o documento é emissão própria; se a chave pertencer ao fornecedor que emitiu uma NF-e de entrada para documentar a devolução, o C100 é saída com emissão por terceiros. A chave da planilha é preservada. Valores e itens dos XMLs não substituem a apuração da planilha.</p>
+        <label class="dropzone" id="xmlDropzone" style="min-height:135px;margin-top:14px">
+          <input id="xmlInput" type="file" accept=".xml,.zip" multiple hidden>
+          <div class="drop-icon">⇧</div>
+          <strong>Importar ZIP ou XMLs de NF-e/NFC-e</strong>
+          <span>pode selecionar vários arquivos XML de uma vez</span>
+          <small id="xmlFileName">Nenhum arquivo selecionado</small>
+        </label>
+        <div id="xmlInfo" class="import-info hidden"></div>
+      </section>
+
+      <section id="conferencia" class="card hidden" data-panel="results">
+        <div class="section-head">
+          <div><span class="eyebrow">ETAPAS 4–6</span><h2>Cruzamento e conferência</h2></div>
+          <span id="validationStatus" class="status neutral">Aguardando</span>
+        </div>
+
+        <div class="kpis" id="kpis"></div>
+
+        <div class="two-col">
+          <div class="subcard">
+            <h3>Fechamento oficial da planilha</h3>
+            <p class="muted">Valores lidos da aba Resumo/Apuração. O fechamento não é recalculado pelo protótipo.</p>
+            <div id="summaryMetrics" class="metric-list"></div>
+          </div>
+          <div class="subcard">
+            <h3>Validações</h3>
+            <div id="validationList" class="validation-list"></div>
+          </div>
+        </div>
+
+        <div class="subcard table-card">
+          <div class="table-title"><div><h3>Abas reconhecidas</h3><p class="muted">Leitura por nome de campo, sem depender da posição da coluna.</p></div></div>
+          <div class="table-wrap"><table><thead><tr><th>Aba</th><th>Cabeçalho</th><th>Linhas úteis</th><th>Documentos</th><th>Status</th></tr></thead><tbody id="sheetTable"></tbody></table></div>
+        </div>
+
+        <div class="subcard table-card" style="margin-top:14px">
+          <div class="table-title"><div><h3>Participantes e cruzamento cadastral</h3><p class="muted">Os XMLs são usados somente para completar o registro 0150. O sistema cruza os participantes pelo CNPJ/CPF.</p></div></div>
+          <div class="table-wrap"><table><thead><tr><th>Participante</th><th>CNPJ/CPF</th><th>Município</th><th>Endereço</th><th>Fonte</th><th>Status</th><th>Ação</th></tr></thead><tbody id="participantTable"></tbody></table></div>
+        </div>
+        <div id="participantModal" class="modal-overlay hidden">
+          <div class="modal-card">
+            <h3>Editar participante</h3>
+            <p class="muted">Use esta tela quando o XML não estiver disponível ou vier sem endereço completo. Os dados salvos ficam neste navegador e prevalecem sobre planilha/XML para o 0150.</p>
+            <input id="pmDoc" type="hidden">
+            <div class="modal-grid">
+              <label class="full">Nome / Razão social<input id="pmName" type="text"></label>
+              <label>CNPJ/CPF<input id="pmDocView" type="text" disabled></label>
+              <label>IE<input id="pmIe" type="text"></label>
+              <label>UF<input id="pmUf" type="text" maxlength="2"></label>
+              <label>COD_MUN (IBGE)<input id="pmCodMun" type="text" inputmode="numeric" maxlength="7"></label>
+              <label class="full">Endereço<input id="pmEnd" type="text"></label>
+              <label>Número<input id="pmNum" type="text"></label>
+              <label>Complemento<input id="pmCompl" type="text"></label>
+              <label class="full">Bairro<input id="pmBairro" type="text"></label>
+            </div>
+            <div class="modal-actions"><button id="pmCancel" type="button">Cancelar</button><button id="pmSave" class="primary" type="button">Salvar participante</button></div>
+          </div>
+        </div>
+
+        <div id="cteEditCard" class="subcard table-card hidden" style="margin-top:14px">
+          <div class="table-title"><div><h3>CT-e — municípios de origem e destino</h3><p class="muted">Se o XML não trouxer cMunIni/cMunFim, corrija aqui antes de gerar. O preenchimento manual fica salvo neste navegador.</p></div></div>
+          <div class="table-wrap"><table><thead><tr><th>CT-e</th><th>Chave</th><th>COD_MUN_ORIG</th><th>COD_MUN_DEST</th><th>Fonte</th><th>Status</th><th>Ação</th></tr></thead><tbody id="cteTable"></tbody></table></div>
+        </div>
+        <div id="cteModal" class="modal-overlay hidden">
+          <div class="modal-card">
+            <h3>Editar municípios do CT-e</h3>
+            <p class="muted">Informe os códigos IBGE de 7 dígitos do início e do fim da prestação. Esses valores terão prioridade sobre planilha e XML.</p>
+            <input id="cmKey" type="hidden">
+            <div class="modal-grid">
+              <label>CT-e<input id="cmNum" type="text" disabled></label>
+              <label>Série<input id="cmSerie" type="text" disabled></label>
+              <label class="full">Chave<input id="cmChave" type="text" disabled></label>
+              <label>COD_MUN_ORIG (IBGE)<input id="cmOrig" type="text" inputmode="numeric" maxlength="7" placeholder="Ex.: 2211001"></label>
+              <label>COD_MUN_DEST (IBGE)<input id="cmDest" type="text" inputmode="numeric" maxlength="7" placeholder="Ex.: 2112209"></label>
+            </div>
+            <div class="modal-actions"><button id="cmCancel" type="button">Cancelar</button><button id="cmSave" class="primary" type="button">Salvar CT-e</button></div>
+          </div>
+        </div>
+
+        <div id="overrideBox" class="override-box hidden">
+          <label><input id="allowEditableErrors" type="checkbox"><span><b>Gerar mesmo com pendências editáveis.</b> Use somente quando pretende corrigir esses campos diretamente no PVA/SPED. Erros estruturais, chave, CFOP/CST incompatível e relações obrigatórias continuam bloqueando a geração.</span></label>
+        </div>
+
+        <div class="actions">
+          <button class="btn secondary" id="previewBtn" disabled>Visualizar TXT</button>
+          <button class="btn primary" id="downloadBtn" disabled>Gerar SPED Fiscal</button>
+        </div>
+        <div class="prototype-warning">Fluxo da versão 3.5 Perfil A: <b>1)</b> Perfil A + cadastro da empresa/contador; <b>2)</b> planilha de apuração; <b>3)</b> ZIP/XMLs usados como fonte cadastral e, quando a planilha não trouxer QTD/UN/CST do item, apenas como complemento estrutural do C170; <b>4)</b> cruzamento por CNPJ/CPF; <b>5)</b> lista de pendências; <b>6)</b> geração do TXT quando os cadastros obrigatórios estiverem completos. No modo <b>Sem movimento</b>, planilha e XMLs são dispensados e a competência é informada manualmente.</div>
+        <div class="prototype-warning"><b>Base Perfil A:</b> o motor foi recalibrado usando o SPED validado de 07/2026 da C DE CARVALHO como referência estrutural: C170 somente em entradas de terceiros, entradas filtradas pela competência de recebimento, devoluções de venda classificadas pela chave, e C100 cancelado via evento XML.</div>
+        <div class="prototype-warning"><b>Ajuste 2.1:</b> para NFC-e (modelo 65), o C100 deixa em branco os campos que o PVA proíbe: COD_PART, VL_BC_ICMS_ST, VL_ICMS_ST, VL_IPI, VL_PIS, VL_COFINS, VL_PIS_ST e VL_COFINS_ST. Para o modelo 65, o único registro filho fiscal gerado é o C190.</div>
+        <div class="prototype-warning"><b>Ajuste 2.2:</b> nas <b>Devoluções de Compras</b>, o débito de ICMS passa a usar <b>exclusivamente a coluna ICMS NFe</b>. Esse mesmo valor alimenta C170/C190 e o total de débitos do E110, sem fallback para ICMS Crédito, ICMS Débito ou Débito ICMS Normal.</div>
+        <div class="prototype-warning"><b>Ajuste 2.3:</b> corrige os erros observados em 08/2026: filial com CNPJ diferente passa a ser documento de terceiro mesmo tendo a mesma raiz; C170 é gerado para NF-e modelo 55 emitida por terceiro também nas saídas/devoluções; e NFC-e modelo 65 zera BC/ST e ICMS-ST também no C190, conforme o padrão do SPED Perfil A validado de 07/2026.</div>
+        <div class="prototype-warning"><b>Ajuste 2.4:</b> compatibilidade com o modelo da ÓTIMA. As abas <b>E-Devol Prop</b> e <b>E-Devol Terc</b> são tratadas como <b>Devoluções de Vendas</b>; <b>S-Devol Prop</b> e <b>S-Devol Terc</b> como <b>Devoluções de Compras</b>. O crédito das devoluções de venda segue a regra já definida: Tipo N, ou RN/RST com Cliente 2, sempre pelo <b>ICMS NFe</b>.</div>
+        <div class="prototype-warning"><b>Ajuste 2.5:</b> nas abas da ÓTIMA que não trazem quantidade, unidade ou CST do item, o XML da NF-e passa a complementar <b>somente os campos estruturais do C170</b>, sem substituir valores fiscais da planilha. Em <b>S-Devol Terc</b>, CFOP 1xxx/2xxx/3xxx é convertido para 5xxx/6xxx/7xxx na escrituração de saída. NF complementar de IPI é identificada com COD_SIT 06 e não força C170. Para ICMS-ST do PI, E250 passa a usar automaticamente os padrões observados no SPED Perfil A validado (002/113116 para recolhimento ST e 001/113001 para débito especial), com vencimento no dia 17 do mês seguinte.</div>
+        <div class="prototype-warning"><b>Ajuste 2.6:</b> corrige a ÓTIMA após validação do PVA: VL_ITEM do C170 e VL_MERC do C100 passam a usar o valor da mercadoria sem somar frete, despesas ou IPI; o participante de NF-e de terceiro passa a ser identificado prioritariamente pelo CNPJ da chave; e o C190 passa a preencher VL_RED_BC quando houver redução efetiva de base (diferença positiva entre VL_OPR e VL_BC_ICMS). Advertências de CSOSN/CST de fornecedores do Simples e S-Devol Terc continuam como advertências quando a regra fiscal escolhida exige preservá-las.</div>
+        <div class="prototype-warning"><b>Ajuste 3.4:</b> corrige a regra das devoluções de venda para empresas <b>Normal - sem Regime Especial</b>: somente <b>TIPO = N</b> gera crédito, usando o valor da coluna <b>ICMS NFe</b>. A coluna Cliente não interfere nessa modalidade.</div>
+        <div class="prototype-warning"><b>Ajuste 3.4 adicional:</b> corrige planilhas com <b>dois cabeçalhos chamados Tipo</b>. O gerador passa a distinguir Tipo PF/PJ da classificação fiscal N/ST/I/RN/RST, evitando zerar o crédito das devoluções de venda.</div>
+        <div class="prototype-warning"><b>Ajuste 2.8:</b> participantes pendentes podem ser corrigidos manualmente na tabela e os dados ficam salvos no navegador. O cruzamento cadastral também tenta localizar primeiro o XML da própria chave da NF-e e extrair emitente/destinatário antes de bloquear o 0150.</div>
+        <div class="prototype-warning"><b>CT-e:</b> a versão 3.0 também lê XML de CT-e modelo 57. Quando a planilha não trouxer os códigos IBGE de origem/destino, o D100 usa automaticamente <b>cMunIni</b> e <b>cMunFim</b> do XML correspondente.</div>
+        <div class="prototype-warning"><b>Ajuste 3.0:</b> além das correções de CT-e e participantes, o gerador agora possui módulo de <b>lançamentos manuais do Bloco E</b> (E111/E112/E113, E115, E116, E210, E220/E230/E240 e E250), com impacto automático no E110/E210 quando aplicável.</div>
+        <div class="prototype-warning"><b>Ajuste 3.6:</b> a biblioteca inicial foi ampliada com códigos usuais do <b>Piauí</b> para E111, E115, E220 e receitas de E116/E250. O E110 também pode ser ajustado manualmente antes da geração.</div>
+        <div class="prototype-warning"><b>Regras mantidas:</b> o campo CEST do registro 0200 será sempre deixado em branco e os campos de IPI do C170 não receberão valores da planilha. O IPI não será levado ao nível de item C170.</div>
+      </section>
+
+      <section class="card hidden" id="txtPanel">
+        <div class="section-head"><div><span class="eyebrow">PRÉVIA</span><h2>TXT gerado</h2></div><button class="link-btn" id="closePreview">Fechar</button></div>
+        <pre id="txtPreview"></pre>
+      </section>
+    </main>
+  </div>
+
+  <div id="toast" class="toast"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+  <script>
+/* Contalger - Gerador SPED Fiscal • Perfil A | Versão 3.0
+   Entrada: planilhas de apuração Contalger (3 modelos) ou modo sem movimento
+   Saída: TXT estrutural para testes no PVA. Não é versão de produção. */
+
+const state = { workbook:null, file:null, profile:'A', analysis:null, txt:"", xmlPartyMap:new Map(), xmlDocs:[], xmlCteDocs:[], cancelledKeys:new Set(), manualPartyMap:new Map(), manualCteMap:new Map(), manualERecords:[], codeCatalog:[], xmlStats:{files:0,xmls:0,parties:0,invalid:0}, strictReport:{errors:[],warnings:[]} };
+const $ = (id) => document.getElementById(id);
+const norm = (v) => String(v ?? "").normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/\s+/g," ").trim().toUpperCase();
+const digits = (v) => String(v ?? "").replace(/\D/g,"");
+const num = (v) => {
+  if (typeof v === "number" && Number.isFinite(v)) return v;
+  if (v === null || v === undefined || v === "") return 0;
+  let s=String(v).trim();
+  if (!s) return 0;
+  if (/^-?\d+(\.\d+)?$/.test(s)) return Number(s);
+  s=s.replace(/R\$|\s/g,"");
+  if (s.includes(",")) s=s.replace(/\./g,"").replace(",",".");
+  const n=Number(s); return Number.isFinite(n)?n:0;
+};
+const money = (v) => new Intl.NumberFormat("pt-BR",{style:"currency",currency:"BRL"}).format(num(v));
+const fmt2 = (v) => num(v).toFixed(2).replace(".",",");
+const clean = (v) => String(v ?? "").replace(/\|/g," ").replace(/[\r\n\t]/g," ").trim();
+const rec = (...fields) => `|${fields.map(clean).join("|")}|`;
+const EXPECTED_FIELDS = {
+  "0000":15,"0001":2,"0005":10,"0100":14,"0150":13,"0190":3,"0200":13,"0990":2,
+  "B001":2,"B990":2,"C001":2,"C100":29,"C170":38,"C190":12,"C990":2,
+  "D001":2,"D100":25,"D190":9,"D990":2,"E001":2,"E100":3,"E110":15,"E111":4,"E112":6,"E113":10,"E115":4,"E116":10,"E200":4,"E210":15,"E220":4,"E230":6,"E240":10,"E250":10,"E990":2,
+  "G001":2,"G990":2,"H001":2,"H990":2,"K001":2,"K990":2,"1001":2,"1010":14,"1990":2,
+  "9001":2,"9900":3,"9990":2,"9999":2
+};
+function validateTxtStructure(txt){
+  const errors=[];
+  const rows=String(txt||"").split(/\r?\n/).filter(Boolean);
+  rows.forEach((line,idx)=>{
+    const parts=line.split("|");
+    const reg=parts[1]||"";
+    const got=Math.max(0,parts.length-2);
+    const expected=EXPECTED_FIELDS[reg];
+    if(expected && got!==expected) errors.push(`Linha ${idx+1} - ${reg}: ${got} campos; esperado ${expected}.`);
+  });
+  return errors;
+}
+const toast = (m) => { const t=$("toast"); t.textContent=m; t.classList.add("show"); setTimeout(()=>t.classList.remove("show"),2200); };
+
+function excelDateToJS(v){
+  if(v instanceof Date) return v;
+  if(typeof v === "number" && v>20000){ const utc_days=Math.floor(v-25569); const d=new Date(utc_days*86400*1000); return new Date(d.getUTCFullYear(),d.getUTCMonth(),d.getUTCDate()); }
+  const s=String(v??"").trim();
+  const m=s.match(/^(\d{1,2})[\/\-.](\d{1,2})[\/\-.](\d{4})$/); if(m) return new Date(+m[3],+m[2]-1,+m[1]);
+  const m8=s.match(/^(\d{2})(\d{2})(\d{4})$/); if(m8) return new Date(+m8[3],+m8[2]-1,+m8[1]);
+  const d=new Date(s); return isNaN(d)?null:d;
+}
+function spedDate(v){ const d=excelDateToJS(v); if(!d) return ""; return String(d.getDate()).padStart(2,"0")+String(d.getMonth()+1).padStart(2,"0")+d.getFullYear(); }
+function periodFromFilename(name){ const m=String(name).match(/(0[1-9]|1[0-2])[.\-_ ](20\d{2})/); if(!m) return null; const mm=+m[1], yy=+m[2]; return {month:mm,year:yy,start:`01${String(mm).padStart(2,"0")}${yy}`,end:`${String(new Date(yy,mm,0).getDate()).padStart(2,"0")}${String(mm).padStart(2,"0")}${yy}`}; }
+function isNoMovement(){ const ch=document.querySelector('input[name="movimento"]:checked'); return !!ch && ch.value==='SEM'; }
+function manualPeriod(){ const mm=Number($('semMovMes')?.value||0), yy=Number($('semMovAno')?.value||0); if(mm<1||mm>12||yy<2000||yy>2099)return null; return {month:mm,year:yy,start:`01${String(mm).padStart(2,"0")}${yy}`,end:`${String(new Date(yy,mm,0).getDate()).padStart(2,"0")}${String(mm).padStart(2,"0")}${yy}`}; }
+function activePeriod(){ return isNoMovement()?manualPeriod():(state.analysis?.period||null); }
+function noMovementAnalysis(){ return {names:[],model:{code:'SEM_MOV',name:'SPED sem movimento'},details:[],summary:{},period:manualPeriod(),participants:[],products:[],units:[],cadMap:new Map(),synthetic:true}; }
+
+function sheetAoa(wb,name){ const ws=wb.Sheets[name]; return ws?XLSX.utils.sheet_to_json(ws,{header:1,raw:true,defval:""}):[]; }
+function detectHeaderRow(aoa){
+  for(let r=0;r<Math.min(6,aoa.length);r++){
+    const n=(aoa[r]||[]).map(norm);
+    if(n.includes("NUMERO FISCAL") && (n.includes("CODIGO PRODUTO") || n.includes("DESCRICAO DO PRODUTO"))) return r;
+  }
+  return -1;
+}
+function objectRows(aoa,hr){
+  if(hr<0) return [];
+  // Preserva cabeçalhos duplicados. Alguns modelos trazem duas colunas chamadas "Tipo":
+  // a primeira indica PF/PJ e a segunda é o TIPO fiscal (N/ST/I/RN/RST).
+  const seen={};
+  const heads=(aoa[hr]||[]).map((h,i)=>{
+    const base=norm(h)||`COL_${i}`;
+    seen[base]=(seen[base]||0)+1;
+    return seen[base]===1?base:`${base}__${seen[base]}`;
+  });
+  return aoa.slice(hr+1).filter(r=>r.some(v=>v!==""&&v!==null&&v!==undefined)).map(r=>{
+    const o={}; heads.forEach((h,i)=>{ o[h]=r[i]??""; }); return o;
+  });
+}
+function field(o,...aliases){ for(const a of aliases){ const k=norm(a); if(Object.prototype.hasOwnProperty.call(o,k) && o[k]!=="" && o[k]!==null && o[k]!==undefined) return o[k]; } return ""; }
+function isAuthorized(row){ const s=norm(field(row,"Situação NF-e")); return !s || s.includes("AUTORIZADO") || s.includes("REGULAR"); }
+const MONTH_NAMES=['JANEIRO','FEVEREIRO','MARCO','ABRIL','MAIO','JUNHO','JULHO','AGOSTO','SETEMBRO','OUTUBRO','NOVEMBRO','DEZEMBRO'];
+function rowInCompetence(row,sheetName,p){
+  if(!p)return true; const n=norm(sheetName);
+  if(n==='ENTRADAS'){
+    const rec=norm(field(row,'Recebimento','Competência Recebimento','Competencia Recebimento'));
+    if(rec.includes('NAO CHEGOU')||rec.includes('NAO RECEB'))return false;
+    if(rec){
+      const expected=MONTH_NAMES[p.month-1];
+      if(MONTH_NAMES.includes(rec))return rec===expected;
+      const d=excelDateToJS(field(row,'Data Recebimento','Data de Recebimento')); if(d)return d.getMonth()+1===p.month&&d.getFullYear()===p.year;
+    }
+    return true;
+  }
+  const d=excelDateToJS(field(row,'Data')); return !d || (d.getMonth()+1===p.month&&d.getFullYear()===p.year);
+}
+function documentKey(row){ const k=digits(field(row,'Chave Acesso')); if(k.length===44)return k; return [field(row,"Número Fiscal"),field(row,"Série"),field(row,"Espécie"),field(row,"Data"),field(row,"CNPJ Fornecedor","CNPJ Cliente")].map(clean).join("|"); }
+
+function detectModel(names){
+  const N=names.map(norm);
+  if(N.includes(norm("Apuração Regime Especial")) && N.includes(norm("CTe FOB IA"))) return {code:"REGIME_CTE",name:"Regime Especial PI • com CT-e"};
+  if(N.includes(norm("Sisat")) && N.includes(norm("Resumo Faturamento")) && !N.some(x=>x.startsWith("APURACAO -"))) return {code:"SIMPLES",name:"Comércio/Simples • modelo Cometa"};
+  if(N.some(x=>x.startsWith("APURACAO -"))) return {code:"REGIME",name:"Regime Especial PI • modelo de apuração"};
+  return {code:"GENERIC",name:"Modelo genérico compatível"};
+}
+
+function analyzeDetailSheet(wb,sourceName,period,logicalName=sourceName){
+  if(!wb.Sheets[sourceName]) return null;
+  const aoa=sheetAoa(wb,sourceName), hr=detectHeaderRow(aoa), rows=objectRows(aoa,hr).filter(r=>clean(field(r,"Número Fiscal"))!=="");
+  rows.forEach(r=>{r.__SOURCE_SHEET=sourceName;r.__LOGICAL_SHEET=logicalName;});
+  const valid=rows.filter(r=>isAuthorized(r) && digits(field(r,'Chave Acesso')).length===44 && rowInCompetence(r,logicalName,period)), docs=new Map();
+  for(const row of valid){ const k=documentKey(row); if(!docs.has(k)) docs.set(k,[]); docs.get(k).push(row); }
+  return {name:logicalName,sourceName,aoa,headerRow:hr,rows,validRows:valid,docs};
+}
+function findSheetName(wb,label){
+  const wanted=norm(label); return (wb.SheetNames||[]).find(n=>norm(n)===wanted)||null;
+}
+function detailSheetSpecs(wb){
+  const specs=[];
+  const add=(logical,aliases)=>{
+    const exact=findSheetName(wb,logical);
+    if(exact){ specs.push({logical,source:exact}); return; }
+    for(const alias of aliases){ const found=findSheetName(wb,alias); if(found&&!specs.some(s=>s.source===found)) specs.push({logical,source:found}); }
+  };
+  add('Entradas',['Entradas']);
+  add('Saidas',['Saidas','Saídas']);
+  // Modelos como a ÓTIMA separam as devoluções por origem do documento.
+  // E-Devol = entrada decorrente de devolução de venda; S-Devol = saída decorrente de devolução de compra.
+  add('Devoluções de Vendas',['E-Devol Prop','E-Devol Terc','E Devol Prop','E Devol Terc']);
+  add('Devoluções de Compras',['S-Devol Prop','S-Devol Terc','S Devol Prop','S Devol Terc']);
+  const cte=findSheetName(wb,'CTe FOB IA'); if(cte) specs.push({logical:'CTe FOB IA',source:cte,cte:true});
+  return specs;
+}
+function detectCTeHeaderRow(aoa){
+  for(let r=0;r<Math.min(12,aoa.length);r++){
+    const n=(aoa[r]||[]).map(norm);
+    if(n.includes("NUM CTE") || n.includes("NUMERO CTE") || n.includes("CHV_CTE") || n.includes("CHAVE CTE") || n.includes("CHAVE CT-E")) return r;
+  }
+  return -1;
+}
+function analyzeCTeSheet(wb,name){
+  if(!wb.Sheets[name]) return null;
+  const aoa=sheetAoa(wb,name), hr=detectCTeHeaderRow(aoa), rows=objectRows(aoa,hr).filter(r=>clean(field(r,"Num CTE","Número CTE","Número Fiscal"))!=="");
+  const valid=rows, docs=new Map();
+  for(const row of valid){ const k=[field(row,"Num CTE","Número CTE","Número Fiscal"),field(row,"Série"),field(row,"Data"),field(row,"CNPJ Fornecedor")].map(clean).join("|"); if(!docs.has(k)) docs.set(k,[]); docs.get(k).push(row); }
+  return {name,aoa,headerRow:hr,rows,validRows:valid,docs};
+}
+
+function rightNumeric(aoa,r,c,max=6){
+  const found=[]; for(let x=c+1;x<=Math.min((aoa[r]||[]).length-1,c+max);x++){ const v=aoa[r][x]; if((typeof v==="number"&&Number.isFinite(v)) || /^-?\d+[.,]?\d*$/.test(String(v).trim())) found.push(num(v)); }
+  return found.length?found[found.length-1]:null;
+}
+function findLabelValue(aoa,aliases,maxRight=6){
+  const wanted=aliases.map(norm);
+  for(let r=0;r<aoa.length;r++) for(let c=0;c<(aoa[r]||[]).length;c++){
+    const s=norm(aoa[r][c]); if(!s) continue;
+    if(wanted.includes(s)){ const v=rightNumeric(aoa,r,c,maxRight); if(v!==null) return {value:v,row:r+1,col:c+1,label:aoa[r][c]}; }
+  }
+  return null;
+}
+function findTotalRow(aoa){
+  if(!aoa.length) return null; const hr=aoa.findIndex(r=>r.map(norm).includes("FATURAMENTO LIQUIDO")); if(hr<0) return null;
+  const headers=aoa[hr].map(norm), tr=aoa.findIndex((r,i)=>i>hr && norm(r[0])==="TOTAL GERAL"); if(tr<0) return null;
+  const get=(h)=>{const i=headers.indexOf(norm(h)); return i>=0?num(aoa[tr][i]):0;};
+  return {faturamento:get("Faturamento Venda"),devolucoes:get("Devolução Venda"),liquido:get("Faturamento Líquido")};
+}
+function extractSummary(wb){
+  const candidates=wb.SheetNames.filter(n=>/apura|resumo/i.test(norm(n)));
+  const out={sources:candidates};
+  for(const name of candidates){
+    const aoa=sheetAoa(wb,name);
+    const map=[
+      ["debitos",["TOTAL DEBITOS"]], ["creditos",["TOTAL CREDITOS"]], ["saldoAnterior",["CREDITO MES ANTERIOR"]],
+      ["icmsRecolher",["VALOR A RECOLHER","ICMS A RECOLHER"]], ["funef",["VALOR FUNEF A RECOLHER"]],
+      ["antecipacao",["ANTECIPACAO PARCIAL"]], ["difal",["DIFERENCIAL DE ALIQUOTAS","ICMS DIFAL (MARANHAO) - A PAGAR"]]
+    ];
+    for(const [key,als] of map) if(out[key]===undefined){ const hit=findLabelValue(aoa,als,6); if(hit){ out[key]=hit.value; out[key+"Source"]=`${name}!L${hit.row}`; } }
+    const total=findTotalRow(aoa); if(total){ out.faturamento=total.faturamento; out.devolucoes=total.devolucoes; out.faturamentoLiquido=total.liquido; }
+  }
+  return out;
+}
+
+function suggestionCompanyName(fileName,wb){
+  for(const s of wb.SheetNames.filter(n=>/apura/i.test(norm(n)))){
+    const aoa=sheetAoa(wb,s); for(let r=0;r<Math.min(8,aoa.length);r++) for(const cell of (aoa[r]||[])){
+      const txt=clean(cell); if(/APURAÇÃO ICMS/i.test(txt) && txt.includes(" - ")){ const parts=txt.split(" - "); const last=parts[parts.length-1].trim(); if(last && !/\d{4}/.test(last)) return last; }
+    }
+  }
+  return String(fileName).replace(/\.xlsx?$/i,"").replace(/^Apuração ICMS\s*\d{2}[.\-]\d{4}\s*-\s*/i,"").replace(/\(\d+\)$/g,"").trim();
+}
+
+function cadastroParticipants(wb){
+  const names=wb.SheetNames||[];
+  const name=names.find(n=>["CADASTRO SPED","PARTICIPANTES SPED","CADASTRO PARTICIPANTES"].includes(norm(n)));
+  const map=new Map(); if(!name) return map;
+  const aoa=sheetAoa(wb,name);
+  let hr=-1; for(let r=0;r<Math.min(12,aoa.length);r++){const hs=(aoa[r]||[]).map(norm); if((hs.includes("CNPJ")||hs.includes("CPF")||hs.includes("DOCUMENTO")) && (hs.includes("COD_MUN")||hs.includes("CODIGO MUNICIPIO IBGE"))) {hr=r;break;}}
+  if(hr<0) return map;
+  const heads=(aoa[hr]||[]).map(norm);
+  for(const row of aoa.slice(hr+1)){
+    const get=(...als)=>{for(const a of als){const i=heads.indexOf(norm(a)); if(i>=0 && row[i]!==undefined && row[i]!==null && row[i]!=="")return row[i];}return "";};
+    const cnpj=digits(get("CNPJ")), cpf=digits(get("CPF")), doc=cnpj||cpf||digits(get("DOCUMENTO")); if(!doc)continue;
+    map.set(doc,{code:clean(get("COD_PART"))||`P${doc}`,doc,name:clean(get("NOME","RAZAO SOCIAL")),ie:clean(get("IE")),uf:clean(get("UF")),codMun:digits(get("COD_MUN","CODIGO MUNICIPIO IBGE")),suframa:clean(get("SUFRAMA")),end:clean(get("ENDERECO","END")),num:clean(get("NUM","NUMERO")),compl:clean(get("COMPL","COMPLEMENTO")),bairro:clean(get("BAIRRO"))});
+  }
+  return map;
+}
+function participantDocFromRow(row,sheetName){
+  const n=norm(sheetName);
+  if(n==='ENTRADAS') return digits(field(row,'CNPJ Fornecedor','CPF Fornecedor','CNPJ Cliente','CPF Cliente'));
+  if(n==='SAIDAS' || n==='DEVOLUCOES DE VENDAS') return digits(field(row,'CNPJ Cliente','CPF Cliente','CNPJ Fornecedor','CPF Fornecedor'));
+  if(n==='DEVOLUCOES DE COMPRAS'){
+    // Devolução de compra é saída. A chave pode ser de emissão própria ou de NF-e de entrada emitida
+    // pelo fornecedor para documentar a devolução. Em ambos os casos, o participante é o fornecedor.
+    const issuer=keyIssuerCnpj(digits(field(row,'Chave Acesso'))), own=digits(document.getElementById('empresaCnpj')?.value||'');
+    if(issuer && own && !sameCnpjBase(issuer,own)) return issuer;
+    return digits(field(row,'CNPJ Fornecedor','CPF Fornecedor','CNPJ Cliente','CPF Cliente')) || issuer;
+  }
+  return digits(field(row,'CNPJ Cliente','CPF Cliente','CNPJ Fornecedor','CPF Fornecedor'));
+}
+
+function isSyntheticParticipant(id){return /^SEM[A-Z0-9]+$/.test(clean(id));}
+function participantCodeForIdentity(id){const s=clean(id); if(!s)return ''; return isSyntheticParticipant(s)?`P${s}`:`P${digits(s)}`;}
+function participantSyntheticKey(row,sheetName){
+  const seed=[norm(sheetName),clean(field(row,'Número Fiscal')),clean(field(row,'Série')),clean(field(row,'Razão Cliente','Razão Fornecedor','Nome Cliente','Nome Fornecedor')),digits(field(row,'COD_MUN','Código Município IBGE','Codigo Municipio IBGE')),clean(field(row,'ENDERECO','END')),digits(field(row,'Chave Acesso'))].join('|');
+  let h=2166136261;
+  for(let i=0;i<seed.length;i++){h^=seed.charCodeAt(i);h=Math.imul(h,16777619);}
+  return `SEM${(h>>>0).toString(36).toUpperCase().padStart(7,'0').slice(-7)}`;
+}
+function participantIdentityFromRow(row,sheetName){return participantDocFromRow(row,sheetName)||participantSyntheticKey(row,sheetName);}
+function xmlPartyForRow(row,doc){
+  const key=digits(field(row,'Chave Acesso')); if(key.length!==44)return {};
+  const xd=state.xmlDocs.find(x=>x.key===key); if(!xd)return {};
+  if(xd.emit&&digits(xd.emit.doc)===digits(doc))return xd.emit;
+  if(xd.dest&&digits(xd.dest.doc)===digits(doc))return xd.dest;
+  return {};
+}
+function loadManualParties(){
+  try{const raw=JSON.parse(localStorage.getItem('contalger_sped_manual_parties')||'{}'); state.manualPartyMap=new Map(Object.entries(raw));}catch(e){state.manualPartyMap=new Map();}
+}
+function saveManualParties(){
+  try{localStorage.setItem('contalger_sped_manual_parties',JSON.stringify(Object.fromEntries(state.manualPartyMap)));}catch(e){}
+}
+function buildParticipants(details,cadMap=new Map(),xmlMap=new Map()){
+  const map=new Map(), own=digits(document.getElementById('empresaCnpj')?.value||'');
+  for(const d of details.filter(Boolean)) for(const row of d.validRows){
+    const especie=norm(field(row,"Espécie")); if(especie.includes("NFC")) continue;
+    const rowDoc=participantDocFromRow(row,d.name), key=digits(field(row,'Chave Acesso')), issuer=keyIssuerCnpj(key);
+    // Para NF-e emitida por terceiro, o participante do C100 deve acompanhar o emitente da chave.
+    // Quando não existe CNPJ/CPF do participante, cria-se um identificador interno estável para o COD_PART.
+    const thirdIssuer=issuer && own && digits(issuer)!==own;
+    const doc=thirdIssuer?issuer:(rowDoc||participantSyntheticKey(row,d.name));
+    const synthetic=isSyntheticParticipant(doc);
+    const cad=cadMap.get(doc)||{}, xml=synthetic?{}:{...(xmlMap.get(doc)||{}),...xmlPartyForRow(row,doc)}, manual=state.manualPartyMap.get(doc)||{};
+    const issuerMismatch=thirdIssuer && rowDoc && digits(rowDoc)!==digits(issuer);
+    const isDevCompra=norm(d.name)==='DEVOLUCOES DE COMPRAS';
+    const rowName=issuerMismatch?'':field(row,"Razão Fornecedor","Razão Cliente");
+    const name=clean(manual.name)||clean(rowName)||cad.name||xml.name||`PARTICIPANTE ${doc}`;
+    const code=(cad.code||participantCodeForIdentity(doc)).slice(0,60);
+    const direct=issuerMismatch?{}:{uf:clean(field(row,"UF Fornecedor","UF Cliente")),ie:clean(field(row,"IE Fornecedor","IE Cliente")),codMun:digits(field(row,"COD_MUN","Código Município IBGE","Codigo Municipio IBGE")),end:clean(field(row,"ENDERECO","END")),num:clean(field(row,"NUMERO","NUM")),compl:clean(field(row,"COMPLEMENTO","COMPL")),bairro:clean(field(row,"BAIRRO")),suframa:clean(field(row,"SUFRAMA"))};
+    let addr=direct, source='PENDENTE';
+    if(manual.codMun||manual.end){addr={...xml,...cad,...direct,...manual};source='MANUAL';}
+    else if(direct.codMun&&direct.end){addr=direct;source='PLANILHA';}
+    else if(cad.codMun&&cad.end){addr=cad;source='CADASTRO';}
+    else if(xml.codMun&&xml.end){addr=xml;source='XML';}
+    else {addr={...xml,...cad,...direct}; if(synthetic)source='COD INTERNO';}
+    const uf=clean(manual.uf)||clean(addr.uf)||direct.uf||cad.uf||xml.uf||"";
+    const ie=clean(manual.ie)||direct.ie||clean(addr.ie)||cad.ie||xml.ie||"";
+    const item={code,doc,name,ie,uf,synthetic, codMun:digits(manual.codMun)||digits(addr.codMun)||direct.codMun||cad.codMun||xml.codMun||"",suframa:clean(manual.suframa)||clean(addr.suframa)||direct.suframa||cad.suframa||xml.suframa||"",end:clean(manual.end)||clean(addr.end)||direct.end||cad.end||xml.end||"",num:clean(manual.num)||clean(addr.num)||direct.num||cad.num||xml.num||"",compl:clean(manual.compl)||clean(addr.compl)||direct.compl||cad.compl||xml.compl||"",bairro:clean(manual.bairro)||clean(addr.bairro)||direct.bairro||cad.bairro||xml.bairro||"",source,xmlMatched:!!xml.doc,keys:key?[key]:[]};
+    if(!map.has(code)) map.set(code,item);
+    else {
+      const cur=map.get(code); for(const k of ['name','ie','uf','codMun','suframa','end','num','compl','bairro']) if(!cur[k]&&item[k])cur[k]=item[k];
+      cur.keys=[...new Set([...(cur.keys||[]),...(item.keys||[])])];
+      if(item.source==='MANUAL')cur.source='MANUAL'; else if(cur.source==='PENDENTE'&&item.source!=='PENDENTE')cur.source=item.source; if(item.xmlMatched)cur.xmlMatched=true;
+    }
+  }
+  return [...map.values()];
+}
+function participantMissing(p,c){
+  const q={...p}; if(c && p.doc===c.cnpj){q.codMun=q.codMun||c.mun;q.end=q.end||c.end;q.num=q.num||c.num;q.compl=q.compl||c.compl;q.bairro=q.bairro||c.bairro;q.uf=q.uf||c.uf;}
+  const miss=[];
+  if(!q.name)miss.push("NOME");
+  if(!isSyntheticParticipant(q.doc)){
+    if(!(q.doc.length===11||q.doc.length===14))miss.push("CNPJ/CPF");
+    else if(q.doc.length===11&&!validCPF(q.doc))miss.push("CPF inválido");
+    else if(q.doc.length===14&&!validCNPJ(q.doc))miss.push("CNPJ inválido");
+  }
+  if(q.codMun.length!==7)miss.push("COD_MUN");
+  if(!q.end)miss.push("ENDERECO");
+  return miss;
+}
+function xmlNodes(parent,tag){
+  if(!parent) return [];
+  try{const n=parent.getElementsByTagNameNS('*',tag); if(n&&n.length)return [...n];}catch(e){}
+  try{return [...parent.getElementsByTagName(tag)];}catch(e){return [];}
+}
+function xmlFirst(parent,tag){return xmlNodes(parent,tag)[0]||null;}
+function xmlText(parent,tag){const n=xmlFirst(parent,tag); return n?clean(n.textContent):'';}
+function partyFromXml(node,addrTag){
+  if(!node)return null;
+  const doc=digits(xmlText(node,'CNPJ')||xmlText(node,'CPF')); if(!doc)return null;
+  const addr=xmlFirst(node,addrTag);
+  return {doc,name:xmlText(node,'xNome')||`PARTICIPANTE ${doc}`,ie:xmlText(node,'IE'),uf:xmlText(addr,'UF'),codMun:digits(xmlText(addr,'cMun')),end:xmlText(addr,'xLgr'),num:xmlText(addr,'nro'),compl:xmlText(addr,'xCpl'),bairro:xmlText(addr,'xBairro'),cep:digits(xmlText(addr,'CEP')),fone:digits(xmlText(addr,'fone')),suframa:xmlText(node,'ISUF')};
+}
+function parseNFeXml(text){
+  const doc=new DOMParser().parseFromString(text,'application/xml');
+  if(xmlNodes(doc,'parsererror').length) throw new Error('XML inválido');
+  const inf=xmlFirst(doc,'infNFe')||doc, ide=xmlFirst(inf,'ide');
+  const emit=partyFromXml(xmlFirst(inf,'emit'),'enderEmit');
+  const dest=partyFromXml(xmlFirst(inf,'dest'),'enderDest');
+  const mod=xmlText(ide,'mod');
+  const id=clean(inf.getAttribute?.('Id')||'');
+  const key=digits(id.replace(/^NFe/i,'')) || digits(xmlText(doc,'chNFe'));
+  const refs=xmlNodes(ide,'refNFe').map(n=>digits(n.textContent)).filter(Boolean);
+  const items=xmlNodes(inf,'det').map(det=>{
+    const prod=xmlFirst(det,'prod'), icms=xmlFirst(det,'ICMS');
+    return {nItem:clean(det.getAttribute?.('nItem')||''),cProd:xmlText(prod,'cProd'),xProd:xmlText(prod,'xProd'),ncm:digits(xmlText(prod,'NCM')),qCom:num(xmlText(prod,'qCom')),uCom:xmlText(prod,'uCom'),vProd:num(xmlText(prod,'vProd')),cst:xmlText(icms,'CST')||xmlText(icms,'CSOSN'),bc:num(xmlText(icms,'vBC')),aliq:num(xmlText(icms,'pICMS')),icms:num(xmlText(icms,'vICMS')),bcst:num(xmlText(icms,'vBCST')),aliqst:num(xmlText(icms,'pICMSST')),st:num(xmlText(icms,'vICMSST')),pCredSN:num(xmlText(icms,'pCredSN')),vCredICMSSN:num(xmlText(icms,'vCredICMSSN'))};
+  });
+  const transp=xmlFirst(inf,'transp'), modFrete=xmlText(transp,'modFrete');
+  return {emit,dest,mod,key,num:clean(xmlText(ide,'nNF')),serie:clean(xmlText(ide,'serie')),date:xmlText(ide,'dhEmi')||xmlText(ide,'dEmi'),refs,items,modFrete};
+}
+function parseCTeXml(text){
+  const doc=new DOMParser().parseFromString(text,'application/xml');
+  if(xmlNodes(doc,'parsererror').length) throw new Error('XML inválido');
+  const inf=xmlFirst(doc,'infCte'); if(!inf) return null;
+  const ide=xmlFirst(inf,'ide');
+  const emit=partyFromXml(xmlFirst(inf,'emit'),'enderEmit');
+  const rem=partyFromXml(xmlFirst(inf,'rem'),'enderReme');
+  const dest=partyFromXml(xmlFirst(inf,'dest'),'enderDest');
+  const exped=partyFromXml(xmlFirst(inf,'exped'),'enderExped');
+  const receb=partyFromXml(xmlFirst(inf,'receb'),'enderReceb');
+  const id=clean(inf.getAttribute?.('Id')||'');
+  const key=digits(id.replace(/^CTe/i,'')) || digits(xmlText(doc,'chCTe'));
+  return {key,mod:xmlText(ide,'mod')||'57',num:clean(xmlText(ide,'nCT')),serie:clean(xmlText(ide,'serie')),date:xmlText(ide,'dhEmi')||xmlText(ide,'dEmi'),cMunOrig:digits(xmlText(ide,'cMunIni')),cMunDest:digits(xmlText(ide,'cMunFim')),xMunOrig:xmlText(ide,'xMunIni'),xMunDest:xmlText(ide,'xMunFim'),ufOrig:xmlText(ide,'UFIni'),ufDest:xmlText(ide,'UFFim'),emit,rem,dest,exped,receb};
+}
+function cteXmlForRow(r){
+  const key=digits(field(r,'Chave Acesso','CHV_CTE','Chave CTe','Chave CT-e'));
+  if(key.length===44){const hit=state.xmlCteDocs.find(x=>x.key===key); if(hit)return hit;}
+  const n=clean(field(r,'Num CTE','Número CTE','Número Fiscal')), serie=clean(field(r,'Série'));
+  return state.xmlCteDocs.find(x=>(!n||clean(x.num)===n)&&(!serie||clean(x.serie)===serie))||null;
+}
+function cteManualKey(r){
+  const key=digits(field(r,'Chave Acesso','CHV_CTE','Chave CTe','Chave CT-e'));
+  if(key.length===44)return key;
+  return [clean(field(r,'Num CTE','Número CTE','Número Fiscal')),clean(field(r,'Série'))].join('|');
+}
+function cteMunicipios(r){
+  const x=cteXmlForRow(r), mk=cteManualKey(r), man=state.manualCteMap.get(mk)||{};
+  const orig=digits(man.orig) || digits(field(r,'COD_MUN_ORIG','Código Município Origem','Codigo Municipio Origem','Municipio Origem IBGE','Município Origem IBGE','cMunIni','COD_MUN_INI','Código Município Início','Codigo Municipio Inicio')) || digits(x?.cMunOrig);
+  const dest=digits(man.dest) || digits(field(r,'COD_MUN_DEST','Código Município Destino','Codigo Municipio Destino','Municipio Destino IBGE','Município Destino IBGE','cMunFim','COD_MUN_FIM','Código Município Fim','Codigo Municipio Fim')) || digits(x?.cMunDest);
+  const source=(digits(man.orig)||digits(man.dest))?'MANUAL':((digits(field(r,'COD_MUN_ORIG','Código Município Origem','Codigo Municipio Origem','Municipio Origem IBGE','Município Origem IBGE'))||digits(field(r,'COD_MUN_DEST','Código Município Destino','Codigo Municipio Destino','Municipio Destino IBGE','Município Destino IBGE')))?'PLANILHA':(x?'XML':'—'));
+  return {orig,dest,xml:x,source,manualKey:mk};
+}
+function mergeXmlParty(p){
+  if(!p||!p.doc)return;
+  const prev=state.xmlPartyMap.get(p.doc)||{}; const merged={...prev,...Object.fromEntries(Object.entries(p).filter(([k,v])=>v!==''&&v!==null&&v!==undefined))};
+  state.xmlPartyMap.set(p.doc,merged);
+}
+async function importXmlFiles(files){
+  const list=[...files]; if(!list.length)return;
+  if(typeof JSZip==='undefined' && list.some(f=>/\.zip$/i.test(f.name))){alert('A biblioteca ZIP não carregou. Conecte-se à internet e recarregue a página.');return;}
+  let xmlCount=0, invalid=0; const before=state.xmlPartyMap.size;
+  const handle=async (name,text)=>{try{
+    const xd=new DOMParser().parseFromString(text,'application/xml'); const tp=xmlText(xd,'tpEvento'), evKey=digits(xmlText(xd,'chNFe'));
+    if(tp==='110111'&&evKey.length===44){state.cancelledKeys.add(evKey);xmlCount++;return;}
+    const cte=parseCTeXml(text);
+    if(cte){
+      [cte.emit,cte.rem,cte.dest,cte.exped,cte.receb].forEach(mergeXmlParty);
+      if(cte.key&&cte.mod==='57'&&!state.xmlCteDocs.some(x=>x.key===cte.key))state.xmlCteDocs.push({...cte,source:name});
+      xmlCount++; return;
+    }
+    const x=parseNFeXml(text); if(x.emit)mergeXmlParty(x.emit); if(x.dest)mergeXmlParty(x.dest); if(x.key&&(x.mod==='55'||x.mod==='65')&&!state.xmlDocs.some(d=>d.key===x.key))state.xmlDocs.push({...x,source:name}); xmlCount++;
+  }catch(e){invalid++;}};
+  for(const f of list){
+    if(/\.zip$/i.test(f.name)){
+      try{const zip=await JSZip.loadAsync(await f.arrayBuffer()); const entries=Object.values(zip.files).filter(e=>!e.dir&&/\.xml$/i.test(e.name)); for(const e of entries)await handle(e.name,await e.async('string'));}catch(e){invalid++;}
+    } else if(/\.xml$/i.test(f.name)){await handle(f.name,await f.text());}
+  }
+  state.xmlStats={files:(state.xmlStats.files||0)+list.length,xmls:(state.xmlStats.xmls||0)+xmlCount,parties:state.xmlPartyMap.size,invalid:(state.xmlStats.invalid||0)+invalid};
+  $('xmlFileName').textContent=`${list.length} arquivo(s) selecionado(s)`;
+  $('xmlInfo').classList.remove('hidden'); $('xmlInfo').innerHTML=`XMLs lidos: <b>${xmlCount.toLocaleString('pt-BR')}</b> • CT-e reconhecidos: <b>${state.xmlCteDocs.length.toLocaleString('pt-BR')}</b> • cadastros únicos disponíveis: <b>${state.xmlPartyMap.size.toLocaleString('pt-BR')}</b>${invalid?` • arquivos inválidos/não reconhecidos: <b>${invalid}</b>`:''}`;
+  const st=$('xmlStatus'); st.className=`status ${xmlCount?'ok':'warn'}`; st.textContent=xmlCount?`${xmlCount} XML(s) lido(s)`:'Nenhum XML válido';
+  if(state.analysis){state.analysis.participants=buildParticipants(state.analysis.details,state.analysis.cadMap,state.xmlPartyMap); renderAnalysis(state.analysis);}
+  toast(`${xmlCount} XML(s) processado(s); ${state.xmlPartyMap.size-before} cadastro(s) novo(s).`);
+}
+
+function buildProducts(details){
+  const map=new Map();
+  for(const d of details.filter(Boolean)) for(const row of d.validRows){
+    const code=clean(field(row,"Código Produto")); if(!code) continue;
+    if(!map.has(code)) map.set(code,{code,descr:field(row,"Descricao do Produto","Descrição do Produto"),un:field(row,"UN"),ncm:digits(field(row,"NCM")),cest:"",aliq:num(field(row,"% ICMS"))});
+  }
+  return [...map.values()];
+}
+function buildUnits(products){ const m=new Map(); for(const p of products){const u=clean(p.un)||"UN"; if(!m.has(u))m.set(u,{u,descr:u});} return [...m.values()]; }
+
+function aggregateDoc(rows,sheetName){
+  const r0=rows[0], n=norm(sheetName), incoming=/ENTRADA|DEVOLUCOES DE VENDAS/.test(n);
+  const partDoc=participantIdentityFromRow(r0,sheetName);
+  const totals={merc:0,item:0,doc:0,desc:0,frete:0,desp:0,ipi:0,bc:0,icms:0,bcst:0,st:0};
+  rows.forEach(r=>{ totals.merc+=itemTotal(r); totals.item+=itemTotal(r); const docItem=field(r,"Total Item","Total"); totals.doc+=(docItem!==""&&docItem!==null&&docItem!==undefined)?num(docItem):(itemTotal(r)+num(field(r,"Frete"))+num(field(r,"Despesas"))+num(field(r,"Valor IPI"))-num(field(r,"Desconto"))); totals.desc+=num(field(r,"Desconto")); totals.frete+=num(field(r,"Frete")); totals.desp+=num(field(r,"Despesas")); totals.ipi+=num(field(r,"Valor IPI")); totals.bc+=icmsSpedBase(r,sheetName); totals.icms+=icmsSpedValue(r,sheetName); totals.bcst+=num(field(r,"Base ICMS ST")); totals.st+=num(field(r,"VL ICMS ST")); });
+  if(!totals.doc) totals.doc=totals.merc+totals.frete+totals.desp+totals.ipi-totals.desc;
+  return {rows,r0,incoming,indEmit:null,partDoc,partCode:participantCodeForIdentity(partDoc),num:clean(field(r0,"Número Fiscal")),serie:clean(field(r0,"Série")),especie:norm(field(r0,"Espécie")),date:field(r0,"Data"),receipt:field(r0,'Data Recebimento','Data de Recebimento','Recebimento'),key:digits(field(r0,"Chave Acesso")),totals};
+}
+function keyIssuerCnpj(key){const s=digits(key);return s.length===44?s.slice(6,20):'';}
+function sameCnpjBase(a,b){const x=digits(a),y=digits(b);return x.length>=8&&y.length>=8&&x.slice(0,8)===y.slice(0,8);}
+function resolveDocument(doc,sheetName,c){
+  const issuer=keyIssuerCnpj(doc.key), own=issuer&&digits(issuer)===digits(c.cnpj);
+  const indEmit=issuer?(own?'0':'1'):(doc.incoming?'1':'0');
+  const match=state.xmlDocs.find(x=>x.key===doc.key)||null;
+  let partDoc=doc.partDoc;
+  if(indEmit==='1') partDoc=issuer||match?.emit?.doc||partDoc;
+  return {...doc,indEmit,partDoc,partCode:participantCodeForIdentity(partDoc),resolvedXml:match};
+}
+function date8Comparable(v){const s=spedDate(v); return s.length===8 ? Number(s.slice(4)+s.slice(2,4)+s.slice(0,2)) : 0;}
+function codSitForDoc(doc,p){ const st=norm(field(doc.r0||{},'Situação NF-e')); if(st.includes('CANCEL'))return '02'; if(st.includes('DENEG'))return '04'; if(isComplementaryDoc(doc))return '06'; return '00';}
+function entryExitDate(doc,p){ const dt=spedDate(doc.date); if(!doc.incoming)return dt; const d=excelDateToJS(doc.date); if(d&&p&&d.getMonth()+1===p.month&&d.getFullYear()===p.year)return dt; const rd=excelDateToJS(doc.receipt); if(rd)return spedDate(rd); return p?.start||dt; }
+function normalizeUnit(v){return norm(v).replace(/[^A-Z0-9]/g,'').slice(0,6)||'UN';}
+function cleanCest(v){const s=digits(v); return s.length===7 && !/^0{7}$/.test(s) ? s : '';}
+function buildItemCatalog(detailSheets){
+  const usage=new Map();
+  for(const d of detailSheets) for(const rows of d.docs.values()){
+    const doc=resolveDocument(aggregateDoc(rows,d.name),d.name,company()), mod=modelCode(doc.especie), sit=codSitForDoc(doc,state.analysis?.period); if(!shouldEmitC170(doc,mod,sit))continue;
+    for(const r of rows){const code=itemCode(r); if(!code)continue; const un=normalizeUnit(itemUnit(r)); if(!usage.has(code))usage.set(code,new Map()); const um=usage.get(code); if(!um.has(un))um.set(un,{orig:code,un,descr:itemDescr(r),ncm:itemNcm(r),cest:'',aliq:num(field(r,'% ICMS'))});}
+  }
+  const catalog=new Map();
+  for(const [code,um] of usage){const multi=um.size>1; for(const [un,x] of um){let sped=multi?`${code}_${un}`:code; sped=clean(sped).slice(0,60); catalog.set(`${code}|${un}`,{...x,sped,multi});}}
+  return catalog;
+}
+function spedItemCode(r,catalog){const code=itemCode(r),un=normalizeUnit(itemUnit(r)); return catalog.get(`${code}|${un}`)?.sped||code;}
+function modelCode(especie){ if(especie.includes("NFC")) return "65"; if(especie.includes("NF-E")||especie.includes("NFE")) return "55"; return "55"; }
+function cst3(v){ const s=digits(v); return s?s.padStart(3,"0").slice(-3):"000"; }
+
+function validCPF(v){
+  const s=digits(v); if(s.length!==11||/^(\d)\1{10}$/.test(s))return false;
+  let sum=0; for(let i=0;i<9;i++)sum+=Number(s[i])*(10-i); let d=(sum*10)%11; if(d===10)d=0; if(d!==Number(s[9]))return false;
+  sum=0; for(let i=0;i<10;i++)sum+=Number(s[i])*(11-i); d=(sum*10)%11; if(d===10)d=0; return d===Number(s[10]);
+}
+function validCNPJ(v){
+  const s=digits(v); if(s.length!==14||/^(\d)\1{13}$/.test(s))return false;
+  const calc=(base,w)=>{let sum=0; for(let i=0;i<w.length;i++)sum+=Number(base[i])*w[i]; const r=sum%11; return r<2?0:11-r;};
+  const d1=calc(s,[5,4,3,2,9,8,7,6,5,4,3,2]); if(d1!==Number(s[12]))return false;
+  const d2=calc(s,[6,5,4,3,2,9,8,7,6,5,4,3,2]); return d2===Number(s[13]);
+}
+function validAccessKey(v){
+  const s=digits(v); if(s.length!==44)return false; let sum=0,w=2; for(let i=42;i>=0;i--){sum+=Number(s[i])*w;w++;if(w>9)w=2;} const r=sum%11; const d=(r===0||r===1)?0:11-r; return d===Number(s[43]);
+}
+const UF_IBGE={RO:'11',AC:'12',AM:'13',RR:'14',PA:'15',AP:'16',TO:'17',MA:'21',PI:'22',CE:'23',RN:'24',PB:'25',PE:'26',AL:'27',SE:'28',BA:'29',MG:'31',ES:'32',RJ:'33',SP:'35',PR:'41',SC:'42',RS:'43',MS:'50',MT:'51',GO:'52',DF:'53'};
+function validMunicipio(cod,uf=''){const s=digits(cod),u=norm(uf); return s.length===7 && (!u||!UF_IBGE[u]||s.startsWith(UF_IBGE[u]));}
+function validEmail(v){const s=clean(v); return !!s && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(s);}
+function validDate8(v){const s=digits(v); if(s.length!==8)return false; const d=+s.slice(0,2),m=+s.slice(2,4),y=+s.slice(4); const dt=new Date(y,m-1,d); return dt.getFullYear()===y&&dt.getMonth()===m-1&&dt.getDate()===d;}
+function cfopOK(cfop,incoming){const s=digits(cfop); if(s.length!==4)return false; return incoming?/^[123]/.test(s):/^[567]/.test(s);}
+function rowSource(r){return norm(r?.__SOURCE_SHEET||'');}
+function isSDevolTerc(r){return rowSource(r)==='S-DEVOL TERC'||rowSource(r)==='S DEVOL TERC';}
+function cfopRow(r,incoming){
+  const dom=digits(field(r,'CFOP Dominio')), orig=digits(field(r,'CFOP'));
+  if(incoming)return dom||orig;
+  if(isSDevolTerc(r)){ const base=dom||orig; if(/^[123]/.test(base)){const lead=base[0]==='1'?'5':base[0]==='2'?'6':'7'; return lead+base.slice(1);} }
+  if(dom&&/^[567]/.test(dom)&&(!orig||/^[123]/.test(orig)))return dom; return orig||dom;
+}
+function xmlDocForRow(r){const key=digits(field(r,'Chave Acesso')); return key.length===44?state.xmlDocs.find(x=>x.key===key)||null:null;}
+function xmlItemForRow(r){const xd=xmlDocForRow(r); if(!xd||!xd.items?.length)return null; const n=clean(field(r,'Nº Item XML')); if(n){const hit=xd.items.find(x=>String(x.nItem)===String(n)); if(hit)return hit;} const cp=clean(field(r,'Código Produto')); if(cp){const hit=xd.items.find(x=>clean(x.cProd)===cp); if(hit)return hit;} return xd.items.length===1?xd.items[0]:null;}
+function itemQty(r){const q=num(field(r,'Quantidade')); if(q>0)return q; return num(xmlItemForRow(r)?.qCom);}
+function itemUnit(r){return clean(field(r,'UN'))||clean(xmlItemForRow(r)?.uCom);}
+function itemCstIcms(r){return clean(field(r,'CST ICMS'))||clean(xmlItemForRow(r)?.cst);}
+function itemNcm(r){return digits(field(r,'NCM'))||digits(xmlItemForRow(r)?.ncm);}
+function itemDescr(r){return clean(field(r,'Descricao do Produto','Descrição do Produto'))||clean(xmlItemForRow(r)?.xProd);}
+function itemCode(r){return clean(field(r,'Código Produto'))||clean(xmlItemForRow(r)?.cProd);}
+function itemTotal(r){
+  // VL_ITEM/C190 VL_OPR: valor da mercadoria. Na ÓTIMA, 'Total Item' pode incluir frete, despesas ou IPI.
+  const merc=field(r,'Total'); if(merc!==''&&merc!==null&&merc!==undefined)return num(merc);
+  const xv=xmlItemForRow(r)?.vProd; if(xv!==''&&xv!==null&&xv!==undefined)return num(xv);
+  const ti=field(r,'Total Item'); if(ti!==''&&ti!==null&&ti!==undefined){
+    return Math.max(0,num(ti)-num(field(r,'Frete'))-num(field(r,'Despesas'))-num(field(r,'Valor IPI'))+num(field(r,'Desconto')));
+  }
+  return 0;
+}
+function isComplementaryDoc(doc){const r=doc?.r0||{}; const nat=norm(field(r,'Natureza Operação','Natureza da Operação')); const desc=norm(field(r,'Descricao do Produto','Descrição do Produto')); return nat.includes('COMPLEMENT')||desc.includes('COMPLEMENTO DE IPI')||desc.includes('COMPLEMENTAR IPI');}
+function tipoFiscal(r){
+  // Prioriza a coluna de classificação fiscal quando houver cabeçalhos "Tipo" duplicados.
+  // Ex.: Tipo(1)=PF/PJ e Tipo(2)=N/ST/I.
+  const allowed=new Set(['N','RN','RST','ST','I','NR']);
+  const ordered=['TIPO__2','TIPO FISCAL','TIPO TRIBUTARIO','TIPO TRIBUTAÇÃO','TIPO TRIBUTACAO','TIPO'];
+  for(const k of ordered){
+    if(Object.prototype.hasOwnProperty.call(r,k)){ const v=norm(r[k]); if(allowed.has(v)) return v; }
+  }
+  // Fallback: procura qualquer coluna TIPO__n que contenha uma classificação fiscal conhecida.
+  for(const [k,v0] of Object.entries(r)){
+    if(k==='TIPO'||k.startsWith('TIPO__')){ const v=norm(v0); if(allowed.has(v)) return v; }
+  }
+  return norm(field(r,'Tipo'));
+}
+function clienteRegra(r){ return clean(field(r,'Cliente')); }
+function creditoSimples(r){ return num(field(r,'Crédito SN','Credito SN','Crédito ICMS SN','Credito ICMS SN','vCredICMSSN')); }
+function creditoEntradaPermitido(r){ return tipoFiscal(r)==='N'; }
+function regraDevVenda(){ const el=$('regraDevVenda'); return el ? el.value : 'REGIME'; }
+function creditoDevolucaoVendaPermitido(r){
+  if(regraDevVenda()==='NORMAL') return tipoFiscal(r)==='N' && icmsNormalDestacado(r)>0;
+  const t=tipoFiscal(r), cli=clienteRegra(r);
+  return t==='N' || ((t==='RN'||t==='RST') && cli==='2');
+}
+function icmsNormalDestacado(r){ return num(field(r,'ICMS NFe')); }
+function icmsCreditoEntrada(r){
+  if(!creditoEntradaPermitido(r)) return 0;
+  const coluna=num(field(r,'ICMS Crédito'));
+  const calculado=icmsNormalDestacado(r)+creditoSimples(r);
+  return Math.abs(coluna-calculado)<=0.02 && coluna!==0 ? coluna : calculado;
+}
+function icmsCreditoDevVenda(r){ return creditoDevolucaoVendaPermitido(r) ? icmsNormalDestacado(r) : 0; }
+function icmsDebitoSaida(r){ return num(field(r,'ICMS NFe')); }
+function icmsDebitoDevCompra(r){ return num(field(r,'ICMS NFe')); }
+function icmsSpedValue(r,sheetName){
+  const n=norm(sheetName);
+  if(n==='ENTRADAS') return icmsCreditoEntrada(r);
+  if(n==='DEVOLUCOES DE VENDAS') return icmsCreditoDevVenda(r);
+  if(n==='SAIDAS') return icmsDebitoSaida(r);
+  if(n==='DEVOLUCOES DE COMPRAS') return icmsDebitoDevCompra(r);
+  return num(field(r,'ICMS NFe'));
+}
+function icmsSpedBase(r,sheetName){
+  const n=norm(sheetName), val=icmsSpedValue(r,sheetName);
+  if(val<=0) return 0;
+  if(n==='ENTRADAS' && creditoSimples(r)>0 && icmsNormalDestacado(r)<=0){
+    return num(field(r,'Total Item','Total'));
+  }
+  return num(field(r,'BC ICMS Nfe'));
+}
+function icmsSpedAliq(r,sheetName){
+  const n=norm(sheetName), val=icmsSpedValue(r,sheetName);
+  if(val<=0) return 0;
+  if(n==='ENTRADAS' && creditoSimples(r)>0 && icmsNormalDestacado(r)<=0){
+    return num(field(r,'Alíquota ICMS SN','Aliquota ICMS SN'));
+  }
+  return num(field(r,'% ICMS'));
+}
+function preferredIcmsColumn(sheetName){
+  const n=norm(sheetName);
+  if(n==='ENTRADAS') return 'ICMS Crédito';
+  if(n==='SAIDAS') return 'ICMS NFe';
+  if(n==='DEVOLUCOES DE VENDAS') return 'ICMS NFe';
+  if(n==='DEVOLUCOES DE COMPRAS') return 'ICMS NFe';
+  return 'ICMS NFe';
+}
+function computeIcmsTotals(a){
+  const t={debitos:0,creditos:0,debEsp:0,estornoCredDevCompras:0,creditoEntradas:0,creditoSN:0,creditoDevVendaN:0,creditoDevVendaRegime:0,creditoCTe:0,debitoSaidas:0,debitoDevCompras:0};
+  if(!a||isNoMovement()) return t;
+  const p=a.period, c=company(), ds=a.details.filter(d=>d&&['Entradas','Saidas','Devoluções de Vendas','Devoluções de Compras'].includes(d.name));
+  for(const d of ds) for(const rows of d.docs.values()){
+    let doc=resolveDocument(aggregateDoc(rows,d.name),d.name,c); if(doc.resolveError)continue; const sit=codSitForDoc(doc,p);
+    let docVal=0;
+    for(const r of rows){
+      const n=norm(d.name), v=icmsSpedValue(r,d.name), tipo=tipoFiscal(r); docVal+=v;
+      if(n==='ENTRADAS'){t.creditoEntradas+=v; if(creditoEntradaPermitido(r))t.creditoSN+=creditoSimples(r);}
+      else if(n==='DEVOLUCOES DE VENDAS'){
+        if(regraDevVenda()==='NORMAL'){ t.creditoDevVendaN+=v; }
+        else if(tipo==='N')t.creditoDevVendaN+=v;
+        else if((tipo==='RN'||tipo==='RST')&&clienteRegra(r)==='2')t.creditoDevVendaRegime+=v;
+      }
+      else if(n==='SAIDAS')t.debitoSaidas+=v;
+      else if(n==='DEVOLUCOES DE COMPRAS'){t.debitoDevCompras+=v;}
+    }
+    if(doc.incoming) t.creditos+=docVal;
+    else if(sit==='01'||sit==='07') t.debEsp+=docVal;
+    else t.debitos+=docVal;
+  }
+  const dSheet=a.details.find(d=>d&&d.name==='CTe FOB IA');
+  if(dSheet) for(const r of dSheet.validRows){const v=num(field(r,'ICMS','Valor ICMS','ICMS CTe'));t.creditoCTe+=v;t.creditos+=v;}
+  return t;
+}
+const ST_DEV_CFOPS=new Set(['1410','1411','1414','1415','1660','1661','1662','2410','2411','2414','2415','2660','2661','2662']);
+const ST_RESS_CFOPS=new Set(['1603','2603']);
+function computeStApuracao(a,c){
+  const map=new Map(); if(!a||isNoMovement())return map; const p=a.period;
+  const ensure=uf=>{uf=norm(uf).slice(0,2)||c.uf; if(!map.has(uf))map.set(uf,{uf,devol:0,ressarc:0,outCred:0,ret:0,outDeb:0,ajCred:0,ajDeb:0,ded:0,debEsp:0}); return map.get(uf);};
+  const ds=a.details.filter(d=>d&&['Entradas','Saidas','Devoluções de Vendas','Devoluções de Compras'].includes(d.name));
+  for(const d of ds) for(const rows of d.docs.values()){
+    let doc=resolveDocument(aggregateDoc(rows,d.name),d.name,c); if(doc.resolveError)continue; const sit=codSitForDoc(doc,p);
+    if(modelCode(doc.especie)==='65')continue;
+    for(const r of rows){const st=num(field(r,'VL ICMS ST')); if(st<=0)continue; const cfop=cfopRow(r,doc.incoming); let uf=clean(field(r,doc.incoming?'UF Fornecedor':'UF Cliente')); if(!uf&&doc.resolvedXml)uf=doc.resolvedXml.dest?.uf||doc.resolvedXml.emit?.uf; if(!uf)uf=c.uf; const x=ensure(uf);
+      if(ST_DEV_CFOPS.has(cfop))x.devol+=st;
+      else if(ST_RESS_CFOPS.has(cfop))x.ressarc+=st;
+      else if(/^[12]/.test(cfop))x.outCred+=st;
+      else if(/^[56]/.test(cfop)){if(sit==='01'||sit==='07'||sit==='10')x.debEsp+=st;else x.ret+=st;}
+    }
+  }
+  for(const x of map.values()){const deb=x.ret+x.outDeb+x.ajDeb, cred=x.devol+x.ressarc+x.outCred+x.ajCred; x.saldoDev=Math.max(0,deb-cred); x.recol=Math.max(0,x.saldoDev-x.ded); x.saldoCred=Math.max(0,cred+x.ded-deb); x.totalPagar=x.recol+x.debEsp;}
+  return map;
+}
+function shouldEmitC170(doc,codMod,codSit=''){return codMod==='55' && String(doc.indEmit)==='1' && !['02','03','04','05','06','07'].includes(String(codSit));}
+function cteField(r,...names){return field(r,...names);}
+
+function company(){ return {name:clean($("empresaNome").value),fantasy:clean($("empresaFantasia").value),cnpj:digits($("empresaCnpj").value),ie:clean($("empresaIe").value),uf:norm($("empresaUf").value).slice(0,2),mun:digits($("empresaMun").value),cep:digits($("empresaCep").value),end:clean($("empresaEnd").value),num:clean($("empresaNum").value),compl:clean($("empresaCompl").value),bairro:clean($("empresaBairro").value),fone:digits($("empresaFone").value),fax:digits($("empresaFax").value),email:clean($("empresaEmail").value),codFin:$("codFin").value,indAtiv:$("indAtiv").value,codVer:digits($("codVer").value).padStart(3,"0").slice(-3)}; }
+function accountant(){ return {name:clean($("contNome").value),cpf:digits($("contCpf").value),crc:clean($("contCrc").value),cnpj:digits($("contCnpj").value),cep:digits($("contCep").value),end:clean($("contEnd").value),num:clean($("contNum").value),compl:clean($("contCompl").value),bairro:clean($("contBairro").value),fone:digits($("contFone").value),fax:digits($("contFax").value),email:clean($("contEmail").value),codMun:digits($("contMun").value)}; }
+function payment(){return {codOr:clean($('e116CodOr').value),vcto:spedDate($('e116Vcto').value),codRec:clean($('e116CodRec').value)};}
+function paymentST(){return {codOr:clean($('e250CodOr').value),vcto:spedDate($('e250Vcto').value),codRec:clean($('e250CodRec').value)};}
+function validateCompany(c){
+  const miss=[]; if(!c.name)miss.push('Razão social'); if(!validCNPJ(c.cnpj))miss.push('CNPJ válido'); if(!c.ie)miss.push('IE');
+  if(!UF_IBGE[c.uf])miss.push('UF válida'); if(!validMunicipio(c.mun,c.uf))miss.push('Município IBGE válido/compatível com UF');
+  if(c.cep.length!==8)miss.push('CEP com 8 dígitos'); if(!c.end)miss.push('Endereço'); if(!c.bairro)miss.push('Bairro');
+  if(!['0','1'].includes(c.codFin))miss.push('COD_FIN'); if(c.codVer!=='020')miss.push('COD_VER 020 para 2026');
+  if(c.indAtiv==='0')miss.push('Atividade industrial ainda exige 0002/E500 e está bloqueada nesta versão');
+  return miss;
+}
+function validateAccountant(a){
+  if(state.profile!=='A')return [];
+  const miss=[]; if(!a.name)miss.push('Nome'); if(!validCPF(a.cpf))miss.push('CPF válido'); if(!a.crc)miss.push('CRC');
+  if(a.cnpj&&!validCNPJ(a.cnpj))miss.push('CNPJ do escritório válido'); if(!validEmail(a.email))miss.push('E-mail válido'); if(!validMunicipio(a.codMun))miss.push('Município IBGE válido'); return miss;
+}
+function validatePayment(p,amount){ const miss=[]; if(num(amount)<=0)return miss; if(!['000','003','004','005','006','090'].includes(p.codOr))miss.push('COD_OR'); if(!validDate8(p.vcto))miss.push('Data de vencimento'); if(!p.codRec)miss.push('Código de receita'); return miss;}
+function validatePaymentST(p,amount){ const miss=[]; if(num(amount)<=0)return miss; if(!['001','002','006','999'].includes(p.codOr))miss.push('COD_OR ST'); if(!validDate8(p.vcto))miss.push('Data de vencimento ST'); if(!p.codRec)miss.push('Código de receita ST'); return miss;}
+function nextMonthDue17(p){if(!p)return ''; const d=new Date(p.year,p.month,17); return String(d.getDate()).padStart(2,'0')+String(d.getMonth()+1).padStart(2,'0')+d.getFullYear();}
+function stPaymentsFor(x,p,c){
+  const out=[]; if(!x||x.totalPagar<=0.005)return out;
+  if(norm(c.uf)==='PI'&&norm(x.uf)==='PI'){
+    const due=nextMonthDue17(p);
+    if(x.recol>0.005)out.push({codOr:'002',amount:x.recol,vcto:due,codRec:'113116',auto:true,kind:'recol'});
+    if(x.debEsp>0.005)out.push({codOr:'001',amount:x.debEsp,vcto:due,codRec:'113001',auto:true,kind:'debEsp'});
+    return out;
+  }
+  const m=paymentST(); out.push({codOr:m.codOr,amount:x.totalPagar,vcto:m.vcto,codRec:m.codRec,auto:false,kind:'manual'}); return out;
+}
+
+
+
+const MANUAL_E_FIELDS={
+  E110:[['mode','Modo: PATCH','text'],['deb','VL_TOT_DEBITOS','number'],['ajDocDeb','VL_AJ_DEBITOS','number'],['totAjDeb','VL_TOT_AJ_DEBITOS','number'],['estCred','VL_ESTORNOS_CRED','number'],['cred','VL_TOT_CREDITOS','number'],['ajDocCred','VL_AJ_CREDITOS','number'],['totAjCred','VL_TOT_AJ_CREDITOS','number'],['estDeb','VL_ESTORNOS_DEB','number'],['saldoAnt','VL_SLD_CREDOR_ANT','number'],['saldoApurado','VL_SLD_APURADO','number'],['ded','VL_TOT_DED','number'],['recol','VL_ICMS_RECOLHER','number'],['saldoTrans','VL_SLD_CREDOR_TRANSPORTAR','number'],['debEsp','DEB_ESP','number']],
+  E111:[['cod','COD_AJ_APUR (8 caracteres)','code:E111'],['desc','Descrição complementar','text'],['value','Valor do ajuste','number']],
+  E112:[['parentCode','Código E111 pai','parent:E111'],['numDA','Nº documento arrecadação','text'],['numProc','Nº processo','text'],['indProc','IND_PROC (0/1/2/9)','text'],['proc','Descrição do processo','text'],['txt','Complemento','text']],
+  E113:[['parentCode','Código E111 pai','parent:E111'],['codPart','COD_PART (0150)','text'],['codMod','Modelo documento','text'],['ser','Série','text'],['sub','Subsérie','text'],['numDoc','Número documento','text'],['dtDoc','Data emissão (DD/MM/AAAA)','text'],['codItem','COD_ITEM (opcional)','text'],['value','Valor do ajuste no item/operação','number'],['chv','Chave eletrônica (44 dígitos)','text']],
+  E115:[['cod','COD_INF_ADIC (8 caracteres)','code:E115'],['value','Valor declaratório','number'],['desc','Descrição complementar','text']],
+  E116:[['codOr','COD_OR','codor:E116'],['value','Valor da obrigação','number'],['vcto','Vencimento (DD/MM/AAAA)','text'],['codRec','Código de receita','code:REC'],['numProc','Nº processo','text'],['indProc','IND_PROC (0/1/2/9)','text'],['proc','Descrição do processo','text'],['txtCompl','Complemento','text'],['mesRef','Mês ref. (MMAAAA)','text']],
+  E210:[['uf','UF da apuração ST','text'],['mode','Modo: ADD ou PATCH','text'],['indMov','IND_MOV_ST','text'],['prevCred','Saldo credor anterior ST','number'],['devol','Devoluções ST','number'],['ressarc','Ressarcimentos ST','number'],['outCred','Outros créditos ST','number'],['ajCred','Ajustes a crédito ST','number'],['ret','Retenções ST','number'],['outDeb','Outros débitos ST','number'],['ajDeb','Ajustes a débito ST','number'],['saldoDev','Saldo devedor antes deduções','number'],['ded','Deduções ST','number'],['recol','ICMS-ST a recolher','number'],['saldoCred','Saldo credor a transportar','number'],['debEsp','Débito especial ST','number']],
+  E220:[['uf','UF da apuração ST','text'],['cod','COD_AJ_APUR (8 caracteres)','code:E220'],['desc','Descrição complementar','text'],['value','Valor do ajuste','number']],
+  E230:[['uf','UF da apuração ST','text'],['parentCode','Código E220 pai','parent:E220'],['numDA','Nº documento arrecadação','text'],['numProc','Nº processo','text'],['indProc','IND_PROC (0/1/2/9)','text'],['proc','Descrição do processo','text'],['txt','Complemento','text']],
+  E240:[['uf','UF da apuração ST','text'],['parentCode','Código E220 pai','parent:E220'],['codPart','COD_PART (0150)','text'],['codMod','Modelo documento','text'],['ser','Série','text'],['sub','Subsérie','text'],['numDoc','Número documento','text'],['dtDoc','Data emissão (DD/MM/AAAA)','text'],['codItem','COD_ITEM (opcional)','text'],['value','Valor do ajuste no item/operação','number'],['chv','Chave eletrônica (44 dígitos)','text']],
+  E250:[['uf','UF da apuração ST','text'],['codOr','COD_OR','codor:E250'],['value','Valor da obrigação ST','number'],['vcto','Vencimento (DD/MM/AAAA)','text'],['codRec','Código de receita','code:REC'],['numProc','Nº processo','text'],['indProc','IND_PROC (0/1/2/9)','text'],['proc','Descrição do processo','text'],['txtCompl','Complemento','text'],['mesRef','Mês ref. (MMAAAA)','text']]
+};
+function htmlEsc(v){return String(v??'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+const DEFAULT_CODE_CATALOG=[
+  // E111 • Operações próprias
+  {id:'DEF_PI010018',kind:'E111',code:'PI010018',desc:'Estorno de crédito das mercadorias fora do Regime Especial'},
+  {id:'DEF_PI030008',kind:'E111',code:'PI030008',desc:'Estorno de débito das mercadorias fora do Regime Especial'},
+  {id:'DEF_PI050048',kind:'E111',code:'PI050048',desc:'Débito especial • saldo devedor de operações fora do Regime Especial'},
+  {id:'DEF_PI050049',kind:'E111',code:'PI050049',desc:'Débito especial • antecipação parcial das mercadorias fora do Regime Especial • E116 005/113011'},
+  {id:'DEF_PI050039',kind:'E111',code:'PI050039',desc:'Débito especial 6,3% • entradas de outras UFs • Regime Especial Produtos Farmacêuticos • E116 090/113001'},
+  {id:'DEF_PI050040',kind:'E111',code:'PI050040',desc:'Débito especial 3% • entradas do PI • Regime Especial Produtos Farmacêuticos • E116 090/113001'},
+  {id:'DEF_PI050041',kind:'E111',code:'PI050041',desc:'Débito especial • limite máximo de saídas a consumidor final • Regime Especial Produtos Farmacêuticos'},
+  {id:'DEF_PI050038',kind:'E111',code:'PI050038',desc:'Débito especial de juros e multa • documento fiscal complementar extemporâneo'},
+  {id:'DEF_PI050035',kind:'E111',code:'PI050035',desc:'Débito especial de juros e multa • escrituração extemporânea'},
+  {id:'DEF_PI050004',kind:'E111',code:'PI050004',desc:'Débito especial de diferencial de alíquota • uso ou consumo'},
+  {id:'DEF_PI050003',kind:'E111',code:'PI050003',desc:'Débito especial de diferencial de alíquota • ativo imobilizado'},
+  {id:'DEF_PI050009',kind:'E111',code:'PI050009',desc:'Débito especial • Taxa FUNEF • E116 090/122100'},
+  {id:'DEF_PI020004',kind:'E111',code:'PI020004',desc:'Crédito de antecipação parcial'},
+  {id:'DEF_PI010012',kind:'E111',code:'PI010012',desc:'Estorno de crédito • Lei 6.146/2011'},
+  {id:'DEF_PI020043',kind:'E111',code:'PI020043',desc:'Crédito presumido por incentivo fiscal • 60% • Lei 6.146/2011'},
+  {id:'DEF_PI020044',kind:'E111',code:'PI020044',desc:'Crédito presumido por incentivo fiscal • 75% • Lei 6.146/2011'},
+  {id:'DEF_PI020045',kind:'E111',code:'PI020045',desc:'Crédito presumido por incentivo fiscal • 80% • Lei 6.146/2011'},
+  {id:'DEF_PI020046',kind:'E111',code:'PI020046',desc:'Crédito presumido por incentivo fiscal • 100% • Lei 6.146/2011'},
+  {id:'DEF_PI010013',kind:'E111',code:'PI010013',desc:'Estorno de créditos • apuração ICMS Simples Nacional'},
+  {id:'DEF_PI030005',kind:'E111',code:'PI030005',desc:'Estorno de débitos • apuração ICMS Simples Nacional'},
+  {id:'DEF_PI050037',kind:'E111',code:'PI050037',desc:'Antecipação parcial recolhida por empresa do Simples Nacional'},
+  {id:'DEF_PI009999',kind:'E111',code:'PI009999',desc:'Ajuste genérico a débito • usar somente quando não houver código específico'},
+  {id:'DEF_PI019999',kind:'E111',code:'PI019999',desc:'Código genérico de estorno de crédito • usar somente quando não houver código específico'},
+  {id:'DEF_PI030010',kind:'E111',code:'PI030010',desc:'Estorno de débito • utilizado pelo motor do projeto quando aplicável'},
+
+  // E115 • Valores declaratórios
+  {id:'DEF_E115_PI020001',kind:'E115',code:'PI020001',desc:'Crédito pelas entradas das mercadorias fora do Regime Especial'},
+  {id:'DEF_E115_PI020002',kind:'E115',code:'PI020002',desc:'Crédito da antecipação parcial paga nas mercadorias fora do Regime Especial'},
+  {id:'DEF_E115_PI020003',kind:'E115',code:'PI020003',desc:'Débito pelas saídas das mercadorias fora do Regime Especial'},
+  {id:'DEF_E115_PI020004',kind:'E115',code:'PI020004',desc:'Saldo credor do período anterior • mercadorias fora do Regime Especial'},
+  {id:'DEF_E115_PI020005',kind:'E115',code:'PI020005',desc:'Saldo devedor • mercadorias fora do Regime Especial'},
+  {id:'DEF_E115_PI020006',kind:'E115',code:'PI020006',desc:'Saldo credor a aproveitar no período seguinte • fora do Regime Especial'},
+  {id:'DEF_E115_PI010002',kind:'E115',code:'PI010002',desc:'Base de cálculo FECOP • saídas de operações próprias'},
+  {id:'DEF_E115_PI010004',kind:'E115',code:'PI010004',desc:'Base de cálculo FECOP • entradas interestaduais ST'},
+  {id:'DEF_E115_PI010006',kind:'E115',code:'PI010006',desc:'Base de cálculo FECOP • saídas internas ST'},
+  {id:'DEF_E115_PI000006',kind:'E115',code:'PI000006',desc:'Base de cálculo FUNEF • incentivo fiscal Lei 6.146/2011'},
+  {id:'DEF_E115_PI000012',kind:'E115',code:'PI000012',desc:'Número de empregados • média anual'},
+
+  // E220 • Substituição Tributária
+  {id:'DEF_PI140002',kind:'E220',code:'PI140002',desc:'Dedução • FECOP ST • saídas internas'},
+  {id:'DEF_PI150003',kind:'E220',code:'PI150003',desc:'Débito especial • FECOP ST • saídas internas • E250 006/113387'},
+  {id:'DEF_PI150004',kind:'E220',code:'PI150004',desc:'Débito especial • FECOP ST • entradas interestaduais • E250 006/113387'},
+  {id:'DEF_PI150006',kind:'E220',code:'PI150006',desc:'Débito especial • substituição das entradas • entradas interestaduais • E250 001/113001'},
+  {id:'DEF_PI140006',kind:'E220',code:'PI140006',desc:'Dedução • pagamentos antecipados ST'},
+  {id:'DEF_PI150008',kind:'E220',code:'PI150008',desc:'Débito especial • pagamentos antecipados ST'},
+  {id:'DEF_PI140007',kind:'E220',code:'PI140007',desc:'Dedução • pagamentos antecipados FECOP ICMS-ST'},
+  {id:'DEF_PI150012',kind:'E220',code:'PI150012',desc:'Débito especial • pagamentos antecipados FECOP ICMS-ST'},
+  {id:'DEF_PI150007',kind:'E220',code:'PI150007',desc:'Débito especial de juros e multa • escrituração extemporânea ST'},
+  {id:'DEF_PI150011',kind:'E220',code:'PI150011',desc:'Débito especial de juros e multa • documento complementar ST extemporâneo'},
+  {id:'DEF_PI150017',kind:'E220',code:'PI150017',desc:'Débito especial • ICMS sobre estoque na inclusão de mercadoria no regime ST'},
+  {id:'DEF_PI120004',kind:'E220',code:'PI120004',desc:'Ressarcimento ST • B100'},
+  {id:'DEF_PI109999',kind:'E220',code:'PI109999',desc:'Ajuste genérico a débito ST • usar somente quando não houver código específico'},
+  {id:'DEF_PI149999',kind:'E220',code:'PI149999',desc:'Dedução genérica ST • usar somente quando não houver código específico'},
+
+  // Receitas estaduais do PI usadas em E116/E250
+  {id:'DEF_113000',kind:'REC',code:'113000',desc:'ICMS • Apuração Normal'},
+  {id:'DEF_113001',kind:'REC',code:'113001',desc:'ICMS • Imposto, Juros e Multa'},
+  {id:'DEF_113011',kind:'REC',code:'113011',desc:'ICMS • Antecipação Parcial'},
+  {id:'DEF_113115',kind:'REC',code:'113115',desc:'ICMS • Importação'},
+  {id:'DEF_113116',kind:'REC',code:'113116',desc:'ICMS • Substituição Tributária Interna • obrigatório para Substituição das Saídas desde 04/2026'},
+  {id:'DEF_113387',kind:'REC',code:'113387',desc:'ICMS • Adicional FECOP'},
+  {id:'DEF_122100',kind:'REC',code:'122100',desc:'Taxa FUNEF'}
+];
+const CODE_KIND_LABEL={E111:'E111 • Ajuste próprio',E115:'E115 • Informação adicional',E220:'E220 • Ajuste ST',REC:'E116/E250 • Receita'};
+function normalizeCatalogItem(x){return {id:x.id||('CC'+Date.now().toString(36)+Math.random().toString(36).slice(2,6)),kind:['E111','E115','E220','REC'].includes(x.kind)?x.kind:'E111',code:norm(x.code).replace(/\s/g,''),desc:clean(x.desc)};}
+function loadCodeCatalog(){try{const raw=JSON.parse(localStorage.getItem('contalger_sped_code_catalog_v31')||'null');const saved=Array.isArray(raw)?raw.map(normalizeCatalogItem):[];const byKey=new Map(saved.map(x=>[x.kind+'|'+x.code,x]));for(const d of DEFAULT_CODE_CATALOG){const k=d.kind+'|'+d.code;if(!byKey.has(k))saved.push({...d});}state.codeCatalog=saved.length?saved:DEFAULT_CODE_CATALOG.map(x=>({...x}));}catch(e){state.codeCatalog=DEFAULT_CODE_CATALOG.map(x=>({...x}));}renderCodeCatalog();}
+function saveCodeCatalog(){try{localStorage.setItem('contalger_sped_code_catalog_v31',JSON.stringify(state.codeCatalog));}catch(e){}renderCodeCatalog();}
+function catalogItems(kind){return state.codeCatalog.filter(x=>x.kind===kind).sort((a,b)=>a.code.localeCompare(b.code));}
+function catalogDesc(kind,code){const x=state.codeCatalog.find(z=>z.kind===kind&&norm(z.code)===norm(code));return x?.desc||'';}
+function renderCodeCatalog(){const tb=$('codeCatalogTable'),st=$('codeCatalogStatus');if(st)st.textContent=`${state.codeCatalog.length} código${state.codeCatalog.length===1?'':'s'}`;if(!tb)return;tb.innerHTML=state.codeCatalog.length?state.codeCatalog.map(x=>`<tr><td>${htmlEsc(CODE_KIND_LABEL[x.kind]||x.kind)}</td><td><b>${htmlEsc(x.code)}</b></td><td>${htmlEsc(x.desc||'—')}</td><td><button class="btn-mini" type="button" onclick="editCatalogCode('${x.id}')">Editar</button> <button class="btn-mini" type="button" onclick="deleteCatalogCode('${x.id}')">Excluir</button></td></tr>`).join(''):`<tr><td colspan="4" style="color:var(--muted)">Nenhum código cadastrado.</td></tr>`;}
+function clearCatalogForm(){$('ccCode').value='';$('ccDesc').value='';$('ccSave').dataset.editId='';$('ccSave').textContent='Salvar código';}
+function saveCatalogCode(){const kind=$('ccKind').value,code=norm($('ccCode').value).replace(/\s/g,''),desc=clean($('ccDesc').value),eid=$('ccSave').dataset.editId||'';if(!code){alert('Informe o código.');return;}if(kind!=='REC'&&!/^[A-Z0-9]{8}$/.test(code)){alert('Para E111/E115/E220, informe um código com 8 caracteres.');return;}if(kind==='REC'&&!/^\d{3,20}$/.test(code)){alert('Código de receita deve ser numérico.');return;}const dup=state.codeCatalog.find(x=>x.kind===kind&&x.code===code&&x.id!==eid);if(dup){alert('Esse código já está cadastrado para essa aplicação.');return;}if(eid){const i=state.codeCatalog.findIndex(x=>x.id===eid);if(i>=0)state.codeCatalog[i]={...state.codeCatalog[i],kind,code,desc};}else state.codeCatalog.push({id:'CC'+Date.now().toString(36)+Math.random().toString(36).slice(2,6),kind,code,desc});saveCodeCatalog();clearCatalogForm();toast('Código salvo no catálogo.');}
+function editCatalogCode(id){const x=state.codeCatalog.find(z=>z.id===id);if(!x)return;$('ccKind').value=x.kind;$('ccCode').value=x.code;$('ccDesc').value=x.desc||'';$('ccSave').dataset.editId=id;$('ccSave').textContent='Atualizar código';document.getElementById('lancamentos')?.scrollIntoView({behavior:'smooth',block:'start'});}
+function deleteCatalogCode(id){const x=state.codeCatalog.find(z=>z.id===id);if(!x)return;if(!confirm(`Excluir o código ${x.code} do catálogo? Os lançamentos já salvos não serão apagados.`))return;state.codeCatalog=state.codeCatalog.filter(z=>z.id!==id);saveCodeCatalog();}
+function resetCodeCatalog(){if(!confirm('Restaurar o catálogo inicial? Seus códigos personalizados serão substituídos.'))return;state.codeCatalog=DEFAULT_CODE_CATALOG.map(x=>({...x}));saveCodeCatalog();clearCatalogForm();toast('Catálogo inicial restaurado.');}
+function parentCodeOptions(kind){const set=new Map();if(kind==='E111'){for(const x of [{code:'PI010018',desc:'Automático'},{code:'PI030008',desc:'Automático'},{code:'PI009999',desc:'Automático'},{code:'PI030010',desc:'Automático'}])set.set(x.code,x.desc);for(const r of manualERecords('E111'))set.set(norm(r.cod),r.desc||catalogDesc('E111',r.cod)||'E111 cadastrado');for(const x of catalogItems('E111'))if(!set.has(x.code))set.set(x.code,x.desc||'Catálogo');}
+if(kind==='E220'){for(const r of manualERecords('E220'))set.set(norm(r.cod),`${r.uf||''}${r.desc?' • '+r.desc:''}`);for(const x of catalogItems('E220'))if(!set.has(x.code))set.set(x.code,x.desc||'Catálogo');}return [...set.entries()].map(([code,desc])=>({code,desc})).filter(x=>x.code);}
+function selectOptions(items,val){const cur=norm(val);let arr=[...items];if(cur&&!arr.some(x=>norm(x.code)===cur))arr.unshift({code:cur,desc:'Código já informado'});return `<option value="">Selecione...</option>`+arr.map(x=>`<option value="${htmlEsc(x.code)}" ${norm(x.code)===cur?'selected':''}>${htmlEsc(x.code+(x.desc?' • '+x.desc:''))}</option>`).join('')+`<option value="__CUSTOM__">Outro código...</option>`;}
+function customCodeField(k,label,kind,val,items){const cur=norm(val),known=items.some(x=>norm(x.code)===cur),custom=cur&&!known;const opts=selectOptions(items,custom?'':cur);return `<label>${label}<select data-me-key="${k}" data-me-select-code="1">${opts.replace('value="__CUSTOM__"',`value="__CUSTOM__" ${custom?'selected':''}`)}</select><input data-me-custom-for="${k}" class="${custom?'':'hidden'}" value="${custom?htmlEsc(cur):''}" placeholder="Digite o código"></label>`;}
+function bindCodeSelects(){document.querySelectorAll('#meFields select[data-me-select-code="1"]').forEach(sel=>{const k=sel.dataset.meKey,input=document.querySelector(`#meFields [data-me-custom-for="${k}"]`);const sync=()=>{if(!input)return;input.classList.toggle('hidden',sel.value!=='__CUSTOM__');if(sel.value==='__CUSTOM__')setTimeout(()=>input.focus(),0);};sel.addEventListener('change',sync);sync();});}
+function loadManualERecords(){try{const v=JSON.parse(localStorage.getItem('contalger_sped_manual_e_v3')||'[]');state.manualERecords=Array.isArray(v)?v:[];}catch(e){state.manualERecords=[];}renderManualERecords();}
+function saveManualERecords(){try{localStorage.setItem('contalger_sped_manual_e_v3',JSON.stringify(state.manualERecords));}catch(e){} renderManualERecords(); if(state.analysis||isNoMovement())renderAnalysis(isNoMovement()?noMovementAnalysis():state.analysis);}
+function manualERecords(reg){return state.manualERecords.filter(x=>x.reg===reg);}
+function manualEDetail(r){
+  if(r.reg==='E111'||r.reg==='E220'){const d=r.desc||catalogDesc(r.reg,r.cod);return `${r.cod||''}${d?' • '+d:''}`;}
+  if(r.reg==='E113'||r.reg==='E240')return `${r.codMod||''} ${r.numDoc||''}${r.chv?' • '+r.chv.slice(0,10)+'…':''}`;
+  if(r.reg==='E116'||r.reg==='E250')return `${r.codOr||''} • ${r.vcto||''} • ${r.codRec||''}`;
+  if(r.reg==='E110')return `${r.mode||'PATCH'} • apuração própria`;
+  if(r.reg==='E210')return `${r.mode||'ADD'} • IND_MOV ${r.indMov||'1'}`;
+  return r.desc||r.txt||r.proc||'';
+}
+function renderManualERecords(){const tb=$('manualETable');if(!tb)return; const rows=state.manualERecords; tb.innerHTML=rows.length?rows.map(r=>`<tr><td><b>${htmlEsc(r.reg)}</b></td><td>${htmlEsc(r.uf||r.parentCode||'—')}</td><td>${htmlEsc(r.cod||r.codOr||r.numDoc||'—')}</td><td>${r.value!==undefined&&r.value!==''?money(r.value):'—'}</td><td>${htmlEsc(manualEDetail(r))}</td><td><button class="btn-mini" type="button" onclick="openManualEEditor('${r.id}')">Editar</button> <button class="btn-mini" type="button" onclick="deleteManualE('${r.id}')">Excluir</button></td></tr>`).join(''):`<tr><td colspan="6" style="color:var(--muted)">Nenhum lançamento manual cadastrado.</td></tr>`;}
+function manualEInputHtml(k,label,type,val){const v=htmlEsc(val??''); if(type.startsWith('code:')){const kind=type.split(':')[1],items=catalogItems(kind);return customCodeField(k,label,kind,val,items);} if(type.startsWith('parent:')){const kind=type.split(':')[1],items=parentCodeOptions(kind);return customCodeField(k,label,kind,val,items);} if(type.startsWith('codor:')){const reg=type.split(':')[1];const items=reg==='E116'?
+[{code:'000',desc:'ICMS a recolher'},{code:'003',desc:'Tabela 5.4'},{code:'004',desc:'Tabela 5.4'},{code:'005',desc:'Antecipação Tributária'},{code:'006',desc:'Tabela 5.4 / FECOP quando aplicável'},{code:'090',desc:'Outras Obrigações do ICMS'}]:
+[{code:'001',desc:'ST pelas entradas'},{code:'002',desc:'ST pelas saídas para o Estado'},{code:'006',desc:'Adicional FECOP'},{code:'999',desc:'Outras obrigações ST'}];return customCodeField(k,label,reg,val,items);} return `<label>${label}<input data-me-key="${k}" type="text" value="${v}" ${type==='number'?'inputmode="decimal"':''}></label>`;}
+function renderManualEFields(reg,data={}){const box=$('meFields'); if(!box)return; box.innerHTML=(MANUAL_E_FIELDS[reg]||[]).map(([k,l,t])=>manualEInputHtml(k,l,t,data[k])).join('');bindCodeSelects();}
+function openManualEEditor(id=''){const r=id?state.manualERecords.find(x=>x.id===id):null; $('meId').value=r?.id||''; $('meReg').value=r?.reg||'E111'; $('meReg').disabled=!!r; $('manualETitle').textContent=r?'Editar lançamento '+r.reg:'Novo lançamento do Bloco E'; const base=r?{...r}:($('meReg').value==='E110'?{mode:'PATCH'}:{});renderManualEFields($('meReg').value,base); $('manualEModal').classList.remove('hidden');}
+function closeManualEEditor(){$('manualEModal').classList.add('hidden');$('meReg').disabled=false;}
+function collectManualE(){const reg=$('meReg').value, obj={reg}; document.querySelectorAll('#meFields [data-me-key]').forEach(el=>{const k=el.dataset.meKey;let v=el.value;if(v==='__CUSTOM__'){const c=document.querySelector(`#meFields [data-me-custom-for="${k}"]`);v=c?.value||'';}obj[k]=v;}); for(const [k,l,t] of (MANUAL_E_FIELDS[reg]||[])) if(t==='number'&&obj[k]!==''&&obj[k]!==undefined)obj[k]=num(obj[k]); if(obj.uf)obj.uf=norm(obj.uf).slice(0,2); if(obj.cod)obj.cod=norm(obj.cod).replace(/\s/g,''); if(obj.parentCode)obj.parentCode=norm(obj.parentCode).replace(/\s/g,''); if(obj.codOr)obj.codOr=norm(obj.codOr).replace(/\s/g,''); if(obj.codRec)obj.codRec=norm(obj.codRec).replace(/\s/g,''); if(obj.codMod)obj.codMod=digits(obj.codMod).padStart(2,'0').slice(-2); if(obj.chv)obj.chv=digits(obj.chv); if(obj.dtDoc)obj.dtDoc=spedDate(obj.dtDoc); if(obj.vcto)obj.vcto=spedDate(obj.vcto); if(obj.mesRef)obj.mesRef=digits(obj.mesRef); if(obj.codPart)obj.codPart=clean(obj.codPart); if(obj.mode)obj.mode=reg==='E110'?'PATCH':(norm(obj.mode)==='PATCH'?'PATCH':'ADD'); return obj;}
+function saveManualEEditor(){const id=$('meId').value, obj=collectManualE(); const errs=validateOneManualE(obj); if(errs.length){alert('Corrija o lançamento antes de salvar:\n\n'+errs.join('\n'));return;} if(id){const i=state.manualERecords.findIndex(x=>x.id===id); if(i>=0)state.manualERecords[i]={...obj,id};}else obj.id='ME'+Date.now().toString(36)+Math.random().toString(36).slice(2,6),state.manualERecords.push(obj); saveManualERecords(); closeManualEEditor(); toast('Lançamento do Bloco E salvo.');}
+function deleteManualE(id){if(!confirm('Excluir este lançamento manual?'))return; state.manualERecords=state.manualERecords.filter(x=>x.id!==id); saveManualERecords();}
+function clearManualE(){if(!state.manualERecords.length)return;if(!confirm('Excluir todos os lançamentos manuais do Bloco E?'))return;state.manualERecords=[];saveManualERecords();toast('Lançamentos manuais removidos.');}
+function manualParticipantExists(code){if(!code)return true;return !!state.analysis?.participants?.some(p=>p.code===code);}
+function validateOneManualE(r){const e=[],reg=r.reg; const val=()=>num(r.value); const code8=v=>/^[A-Z0-9]{8}$/.test(norm(v)); const procOk=v=>!v||['0','1','2','9'].includes(String(v));
+  if(reg==='E110'){if(r.mode&&norm(r.mode)!=='PATCH')e.push('E110: use modo PATCH.');}
+  if(reg==='E111'){if(!code8(r.cod))e.push('E111: COD_AJ_APUR deve ter 8 caracteres.');if(val()<=0)e.push('E111: valor deve ser maior que zero.');}
+  if(reg==='E112'){if(!code8(r.parentCode))e.push('E112: informe o código do E111 pai.');if(!procOk(r.indProc))e.push('E112: IND_PROC inválido.');}
+  if(reg==='E113'){if(!code8(r.parentCode))e.push('E113: informe o código do E111 pai.');if(!/^\d{2}$/.test(r.codMod||''))e.push('E113: modelo obrigatório (2 dígitos).');if(!r.numDoc)e.push('E113: número do documento obrigatório.');if(!validDate8(r.dtDoc))e.push('E113: data do documento inválida.');if(val()<=0)e.push('E113: valor do ajuste deve ser maior que zero.');if(r.chv&& !validAccessKey(r.chv))e.push('E113: chave eletrônica inválida.');if(r.codPart&&!manualParticipantExists(r.codPart))e.push('E113: COD_PART não existe no 0150 atual.');}
+  if(reg==='E115'){if(!code8(r.cod))e.push('E115: COD_INF_ADIC deve ter 8 caracteres.');if(val()<0)e.push('E115: valor inválido.');}
+  if(reg==='E116'){if(!['000','003','004','005','006','090'].includes(String(r.codOr||'')))e.push('E116: COD_OR inválido.');if(val()<=0)e.push('E116: valor deve ser maior que zero.');if(!validDate8(r.vcto))e.push('E116: vencimento inválido.');if(!r.codRec)e.push('E116: código de receita obrigatório.');if(!/^\d{6}$/.test(r.mesRef||''))e.push('E116: MES_REF deve estar em MMAAAA.');if(!procOk(r.indProc))e.push('E116: IND_PROC inválido.');}
+  if(reg==='E210'){if(!/^[A-Z]{2}$/.test(r.uf||''))e.push('E210: UF obrigatória.');if(r.indMov&&!['0','1'].includes(String(r.indMov)))e.push('E210: IND_MOV_ST deve ser 0 ou 1.');}
+  if(reg==='E220'){if(!/^[A-Z]{2}$/.test(r.uf||''))e.push('E220: UF obrigatória.');if(!code8(r.cod))e.push('E220: COD_AJ_APUR deve ter 8 caracteres.');if(val()<=0)e.push('E220: valor deve ser maior que zero.');}
+  if(reg==='E230'){if(!/^[A-Z]{2}$/.test(r.uf||''))e.push('E230: UF obrigatória.');if(!code8(r.parentCode))e.push('E230: informe o código do E220 pai.');if(!procOk(r.indProc))e.push('E230: IND_PROC inválido.');}
+  if(reg==='E240'){if(!/^[A-Z]{2}$/.test(r.uf||''))e.push('E240: UF obrigatória.');if(!code8(r.parentCode))e.push('E240: informe o código do E220 pai.');if(!/^\d{2}$/.test(r.codMod||''))e.push('E240: modelo obrigatório.');if(!r.numDoc)e.push('E240: número do documento obrigatório.');if(!validDate8(r.dtDoc))e.push('E240: data inválida.');if(val()<=0)e.push('E240: valor deve ser maior que zero.');if(r.chv&&!validAccessKey(r.chv))e.push('E240: chave eletrônica inválida.');if(r.codPart&&!manualParticipantExists(r.codPart))e.push('E240: COD_PART não existe no 0150 atual.');}
+  if(reg==='E250'){if(!/^[A-Z]{2}$/.test(r.uf||''))e.push('E250: UF obrigatória.');if(!['001','002','006','999'].includes(String(r.codOr||'')))e.push('E250: COD_OR inválido.');if(val()<=0)e.push('E250: valor deve ser maior que zero.');if(!validDate8(r.vcto))e.push('E250: vencimento inválido.');if(!r.codRec)e.push('E250: código de receita obrigatório.');if(!/^\d{6}$/.test(r.mesRef||''))e.push('E250: MES_REF deve estar em MMAAAA.');if(!procOk(r.indProc))e.push('E250: IND_PROC inválido.');}
+  return e;
+}
+function manualOwnBuckets(){const z={totAjDeb:0,estCred:0,totAjCred:0,estDeb:0,ded:0,debEsp:0};for(const r of manualERecords('E111')){const c=norm(r.cod);if(c.length<4||c[2]!=='0')continue;const v=num(r.value);if(c[3]==='0')z.totAjDeb+=v;else if(c[3]==='1')z.estCred+=v;else if(c[3]==='2')z.totAjCred+=v;else if(c[3]==='3')z.estDeb+=v;else if(c[3]==='4')z.ded+=v;else if(c[3]==='5')z.debEsp+=v;}return z;}
+function manualStBuckets(uf){const z={outDeb:0,outCred:0,ded:0,debEsp:0};for(const r of manualERecords('E220').filter(x=>norm(x.uf)===norm(uf))){const c=norm(r.cod),v=num(r.value);if(c.length<4||c[2]!=='1')continue;if(c[3]==='0'||c[3]==='1')z.outDeb+=v;else if(c[3]==='2'||c[3]==='3')z.outCred+=v;else if(c[3]==='4')z.ded+=v;else if(c[3]==='5')z.debEsp+=v;}return z;}
+function e110WithManual(a){const s=isNoMovement()?{}:(a?.summary||{}),calc=isNoMovement()?{debitos:0,creditos:0,debEsp:0}:computeIcmsTotals(a),auto=isNoMovement()?{adjDeb:0,estCred:0,estDeb1:0,estDeb2:0}:profileARegimeAdjustments(a,calc),m=manualOwnBuckets();const deb=calc.debitos||0,cred=calc.creditos||0,saldoAnt=isNoMovement()?0:Math.max(0,s.saldoAnterior??0);const f={deb,ajDocDeb:0,totAjDeb:(auto.adjDeb||0)+m.totAjDeb,estCred:(auto.estCred||0)+m.estCred,cred,ajDocCred:0,totAjCred:m.totAjCred,estDeb:(auto.estDeb1||0)+(auto.estDeb2||0)+m.estDeb,saldoAnt,ded:m.ded,debEsp:(calc.debEsp||0)+m.debEsp};const raw=f.deb+f.ajDocDeb+f.totAjDeb+f.estCred-f.cred-f.ajDocCred-f.totAjCred-f.estDeb-f.saldoAnt;f.saldoApurado=Math.max(0,raw);f.recol=Math.max(0,f.saldoApurado-f.ded);f.saldoTrans=Math.max(0,-raw);const o=manualERecords('E110')[0];if(o){for(const k of ['deb','ajDocDeb','totAjDeb','estCred','cred','ajDocCred','totAjCred','estDeb','saldoAnt','saldoApurado','ded','recol','saldoTrans','debEsp'])if(o[k]!==''&&o[k]!==undefined)f[k]=num(o[k]);}return f;}
+function stBaseForUf(x,uf){const b={uf,indMov:'1',prevCred:0,devol:0,ressarc:0,outCred:0,ajCred:0,ret:0,outDeb:0,ajDeb:0,saldoDev:0,ded:0,recol:0,saldoCred:0,debEsp:0};if(x)Object.assign(b,x);const m=manualStBuckets(uf);b.outDeb=num(b.outDeb)+m.outDeb;b.outCred=num(b.outCred)+m.outCred;b.ded=num(b.ded)+m.ded;b.debEsp=num(b.debEsp)+m.debEsp;const credits=num(b.prevCred)+num(b.devol)+num(b.ressarc)+num(b.outCred)+num(b.ajCred),debits=num(b.ret)+num(b.outDeb)+num(b.ajDeb);b.saldoDev=Math.max(0,debits-credits);b.recol=Math.max(0,b.saldoDev-num(b.ded));b.saldoCred=Math.max(0,credits+num(b.ded)-debits);const o=manualERecords('E210').find(r=>norm(r.uf)===norm(uf));if(o){const keys=['prevCred','devol','ressarc','outCred','ajCred','ret','outDeb','ajDeb','saldoDev','ded','recol','saldoCred','debEsp'];if((o.mode||'ADD')==='PATCH'){for(const k of keys)if(o[k]!==''&&o[k]!==undefined)b[k]=num(o[k]);}else{for(const k of keys)if(o[k]!==''&&o[k]!==undefined)b[k]=num(b[k])+num(o[k]);}if(o.indMov)b.indMov=String(o.indMov);}b.totalPagar=num(b.recol)+num(b.debEsp);return b;}
+function manualEValidation(a){const errors=[],warnings=[];for(const r of state.manualERecords)errors.push(...validateOneManualE(r));const ownCodes=new Set(manualERecords('E111').map(r=>norm(r.cod)));if(!isNoMovement()&&a){const calc=computeIcmsTotals(a),aut=profileARegimeAdjustments(a,calc);if(aut.estCred>0)ownCodes.add('PI010018');if(aut.estDeb1>0)ownCodes.add('PI030008');if(aut.adjDeb>0)ownCodes.add('PI009999');if(aut.estDeb2>0)ownCodes.add('PI030010');}for(const r of [...manualERecords('E112'),...manualERecords('E113')])if(!ownCodes.has(norm(r.parentCode)))errors.push(`${r.reg}: o E111 pai ${r.parentCode||'(vazio)'} não existe.`);const e220keys=new Set(manualERecords('E220').map(r=>norm(r.uf)+'|'+norm(r.cod)));for(const r of [...manualERecords('E230'),...manualERecords('E240')])if(!e220keys.has(norm(r.uf)+'|'+norm(r.parentCode)))errors.push(`${r.reg}: o E220 pai ${r.parentCode||'(vazio)'} da UF ${r.uf||'—'} não existe.`);const e210ByUf=manualERecords('E210');const dupeUf=e210ByUf.map(r=>r.uf).filter((u,i,a)=>a.indexOf(u)!==i);if(dupeUf.length)errors.push(`E210: mantenha apenas um lançamento manual por UF (${[...new Set(dupeUf)].join(', ')}).`);if(manualERecords('E110').length>1)errors.push('E110: mantenha apenas um ajuste manual do E110.');
+  const e110=e110WithManual(a);const e116=manualERecords('E116');if(e116.length){const sum=e116.reduce((n,r)=>n+num(r.value),0),need=e110.recol+e110.debEsp;if(Math.abs(sum-need)>0.02)errors.push(`E116 manual: soma ${money(sum)} não fecha com VL_ICMS_RECOLHER + DEB_ESP (${money(need)}).`);} if(state.manualERecords.length)warnings.push(`${state.manualERecords.length} lançamento(s) manual(is) do Bloco E serão incluídos no TXT.`);return {errors,warnings};}
+
+function strictPreValidation(){
+  const errors=[],warnings=[]; const a=state.analysis,c=company(),ac=accountant();
+  validateCompany(c).forEach(x=>errors.push(`0000/0005: ${x}.`));
+  validateAccountant(ac).forEach(x=>errors.push(`0100: ${x}.`));
+  if(isNoMovement()){
+    const p=manualPeriod(); if(!p)errors.push('0000/E100: informe uma competência válida para o SPED sem movimento.');
+    else if(p.year!==2026)warnings.push(`O protótipo está configurado para o leiaute 020/2026 e a competência informada é ${p.year}.`);
+    warnings.push('Modo sem movimento: planilha, XMLs, participantes e documentos fiscais não serão levados ao TXT; a apuração E110 será gerada zerada antes dos lançamentos manuais do Bloco E.');
+    const mev=manualEValidation(noMovementAnalysis()); errors.push(...mev.errors); warnings.push(...mev.warnings);
+    return {errors:[...new Set(errors)],warnings:[...new Set(warnings)]};
+  }
+  if(!a){errors.push('Importe a planilha de apuração.');return {errors,warnings};}
+  if(!a.period)errors.push('0000/E100: competência não identificada no nome do arquivo.');
+  else if(a.period.year!==2026)warnings.push(`O protótipo está configurado para o leiaute 020/2026 e a planilha indica ${a.period.year}.`);
+  const pMiss=a.participants.filter(p=>participantMissing(p,c).length);
+  pMiss.slice(0,12).forEach(p=>errors.push(`0150 ${p.name||p.doc}: ${participantMissing(p,c).join(', ')}. Importe o XML correspondente ou clique em Editar na tabela de participantes.`));
+  if(pMiss.length>12)errors.push(`0150: mais ${pMiss.length-12} participante(s) com cadastro obrigatório incompleto.`);
+  const pUf=a.participants.filter(p=>p.codMun&&p.uf&&!validMunicipio(p.codMun,p.uf));
+  pUf.slice(0,8).forEach(p=>warnings.push(`0150 ${p.name||p.doc}: UF ${p.uf} diverge do COD_MUN ${p.codMun}. Como o registro 0150 transmite o município e não possui campo UF, o TXT não será bloqueado; confira o cadastro/XML.`));
+
+  const referencedItems=new Map(); let stTotal=0, difalHint=false;
+  const detailSheets=a.details.filter(d=>d && ['Entradas','Saidas','Devoluções de Vendas','Devoluções de Compras'].includes(d.name));
+  const itemCatalog=buildItemCatalog(detailSheets);
+  for(const d of detailSheets){
+    const preferred=norm(preferredIcmsColumn(d.name)); const headers=d.headerRow>=0?(d.aoa[d.headerRow]||[]).map(norm):[]; if(!headers.includes(preferred))warnings.push(`${d.name}: coluna preferencial ${preferredIcmsColumn(d.name)} não encontrada; será aplicada a regra com os campos alternativos disponíveis.`);
+    for(const rows of d.docs.values()){
+      let doc=resolveDocument(aggregateDoc(rows,d.name),d.name,c); const t=doc.totals, mod=modelCode(doc.especie), label=`${d.name} NF ${doc.num||'sem número'}`;
+      if(doc.resolveError)errors.push(`C100 ${label}: ${doc.resolveError}.`);
+      if(!doc.num || num(doc.num)<=0)errors.push(`C100 ${label}: NUM_DOC obrigatório/inválido.`);
+      if(!doc.serie || doc.serie.length>3)errors.push(`C100 ${label}: série obrigatória para modelo ${mod} e limitada a 3 caracteres.`);
+      if(!validAccessKey(doc.key))errors.push(`C100 ${label}: chave de acesso com 44 dígitos e DV válido é obrigatória para modelo ${mod}.`);
+      if(validAccessKey(doc.key)){const emitKey=keyIssuerCnpj(doc.key); const devCompra=norm(d.name)==='DEVOLUCOES DE COMPRAS'; if(!doc.incoming&&!devCompra&&!sameCnpjBase(emitKey,c.cnpj))errors.push(`C100 ${label}: chave pertence ao CNPJ ${emitKey}, mas a saída deve usar NF-e própria da empresa.`); if(devCompra&&!sameCnpjBase(emitKey,c.cnpj))warnings.push(`C100 ${label}: devolução de compra escriturada como saída com emissão por terceiros (chave do fornecedor ${emitKey}).`); if(doc.incoming&&doc.partDoc&&emitKey&&!sameCnpjBase(emitKey,doc.partDoc))warnings.push(`C100 ${label}: emitente da chave (${emitKey}) diverge do participante ${doc.partDoc}; confira o cadastro.`);}
+      if(!spedDate(doc.date))errors.push(`C100 ${label}: DT_DOC obrigatória.`);
+      if(doc.incoming&&!spedDate(doc.date))errors.push(`C100 ${label}: DT_E_S obrigatória na entrada.`);
+      if(mod==='65'&&doc.incoming)errors.push(`C100 ${label}: NFC-e modelo 65 não pode ser escriturada como entrada.`);
+      if(mod!=='65'&&!doc.partDoc)errors.push(`C100 ${label}: COD_PART obrigatório e não há CNPJ/CPF do participante.`);
+      if(mod==='65'&&(t.bcst||t.st||t.ipi))warnings.push(`C100 ${label}: em NFC-e modelo 65, COD_PART, BC/ST, IPI, PIS/COFINS e ST de PIS/COFINS não serão informados no C100; somente os campos permitidos e o C190 serão gerados.`);
+      for(const r of rows){
+        const cfop=cfopRow(r,doc.incoming); if(doc.incoming&&!cfop)errors.push(`C190 ${label}: CFOP Domínio obrigatório na entrada.`); else if(!cfopOK(cfop,doc.incoming))errors.push(`C190 ${label}: CFOP ${cfop||'vazio'} incompatível com ${doc.incoming?'entrada':'saída'}.`);
+        const cst=digits(itemCstIcms(r)); if(!cst)errors.push(`C190 ${label}: CST_ICMS obrigatório${xmlDocForRow(r)?' no XML/item':' — importe o XML da NF-e para complementar o item'}.`);
+        const tipo=tipoFiscal(r);
+        if(norm(d.name)==='ENTRADAS' && !tipo)errors.push(`Crédito ${label}: coluna TIPO obrigatória para decidir o crédito das compras.`);
+        if(norm(d.name)==='DEVOLUCOES DE VENDAS' && (tipo==='RN'||tipo==='RST') && !clienteRegra(r))errors.push(`Crédito ${label}: coluna Cliente obrigatória para aplicar a regra RN/RST.`);
+        if(norm(d.name)==='ENTRADAS' && tipo==='N'){
+          const colCred=num(field(r,'ICMS Crédito')), calcCred=icmsNormalDestacado(r)+creditoSimples(r);
+          if(colCred && Math.abs(colCred-calcCred)>0.02)warnings.push(`${label}: ICMS Crédito (${money(colCred)}) difere de ICMS NFe + Crédito SN (${money(calcCred)}); será usado o somatório dos campos destacados.`);
+        }
+        const st=num(field(r,'VL ICMS ST')); stTotal+=st;
+        if(!doc.incoming && (cfop==='6108'||cfop==='6107'))difalHint=true;
+        const ic=icmsSpedValue(r,d.name);
+        const codSit=codSitForDoc(doc,a.period);
+        if(shouldEmitC170(doc,mod,codSit)){
+          const code=itemCode(r), un=itemUnit(r), qtd=itemQty(r), vl=itemTotal(r);
+          if(!code)errors.push(`C170 ${label}: COD_ITEM obrigatório.`);
+          if(qtd<=0)errors.push(`C170 ${label}: QTD ausente; importe o XML da NF-e para complementar quantidade do item.`);
+          if(!un)errors.push(`C170 ${label}: UNID ausente; importe o XML da NF-e para complementar unidade do item.`);
+          if(vl<0)errors.push(`C170 ${label}: VL_ITEM não pode ser negativo.`);
+          const ncm=itemNcm(r); if((st>0||/^[37]/.test(cfop))&&ncm.length!==8)errors.push(`0200/C170 ${label}: NCM de 8 dígitos obrigatório para item sujeito a ST/importação/exportação.`);
+          if(code){const su=normalizeUnit(un), cat=itemCatalog.get(`${code}|${su}`); referencedItems.set(cat?.sped||code,{descr:itemDescr(r),un:su,ncm});}
+        } else if(codSit==='06' && isComplementaryDoc(doc)){
+          warnings.push(`${label}: NF complementar identificada (COD_SIT 06); C170 não será exigido/gerado. C190 permanece obrigatório.`);
+        }
+      }
+    }
+  }
+  for(const [code,p] of referencedItems){if(!p.descr)errors.push(`0200 ${code}: DESCR_ITEM obrigatória.`); if(!p.un)errors.push(`0200 ${code}: UNID_INV obrigatória.`);}
+  const multiOrig=new Set([...itemCatalog.values()].filter(x=>x.multi).map(x=>x.orig)); if(multiOrig.size)warnings.push(`${multiOrig.size} produto(s) aparecem com mais de uma unidade comercial; o TXT usará códigos internos por produto+unidade para não exigir fator 0220 inexistente na planilha.`);
+  if(a.period?.month===7&&a.period?.year===2026&&digits(c.cnpj)==='28492207000140'){ const c170Rows=detailSheets.reduce((acc,d)=>acc+[...d.docs.values()].reduce((z,rs)=>{const dc=resolveDocument(aggregateDoc(rs,d.name),d.name,c);return z+(shouldEmitC170(dc,modelCode(dc.especie),codSitForDoc(dc,a.period))?rs.length:0);},0),0); if(c170Rows!==1067)warnings.push(`Referência Perfil A 07/2026: o SPED validado possui 1.067 C170; a leitura atual encontrou ${c170Rows.toLocaleString('pt-BR')}.`); else warnings.push('Referência Perfil A 07/2026: quantidade de C170 confere com o SPED validado (1.067 itens).'); if(state.cancelledKeys.size<9)warnings.push('Referência 07/2026 possui 9 NF-e próprias canceladas (C100 COD_SIT 02) que não aparecem na planilha. Importe também os XMLs/eventos de cancelamento para reproduzir integralmente o arquivo validado.'); }
+
+  const dSheet=a.details.find(d=>d&&d.name==='CTe FOB IA');
+  if(dSheet&&dSheet.validRows.length){
+    const groups=new Map(); dSheet.validRows.forEach(r=>{const n=clean(field(r,'Num CTE','Número CTE','Número Fiscal')); if(!n)return; if(!groups.has(n))groups.set(n,[]);groups.get(n).push(r);});
+    for(const rows of groups.values()){
+      const r=rows[0], n=clean(field(r,'Num CTE','Número CTE','Número Fiscal')), label=`D100 CT-e ${n||'sem número'}`, key=digits(field(r,'Chave Acesso','CHV_CTE','Chave CTe','Chave CT-e')), serie=clean(field(r,'Série')), date=spedDate(field(r,'Data')), doc=digits(field(r,'CNPJ Fornecedor')), cfop=digits(field(r,'CFOP Dominio','CFOP')), mun=cteMunicipios(r), orig=mun.orig, dest=mun.dest;
+      if(!n||num(n)<=0)errors.push(`${label}: NUM_DOC obrigatório.`); if(!serie||serie.length>3)errors.push(`${label}: SER obrigatória e com até 3 caracteres.`); if(!validAccessKey(key))errors.push(`${label}: CHV_CTE obrigatória e com DV válido.`); if(!date)errors.push(`${label}: DT_DOC/DT_A_P obrigatória.`); if(!doc)errors.push(`${label}: COD_PART obrigatório.`); if(!cfopOK(cfop,true))errors.push(`${label}: CFOP de entrada inválido.`); if(!validMunicipio(orig))errors.push(`${label}: COD_MUN_ORIG obrigatório (7 dígitos) — importe o XML do CT-e para preencher cMunIni automaticamente.`); if(!validMunicipio(dest))errors.push(`${label}: COD_MUN_DEST obrigatório (7 dígitos) — importe o XML do CT-e para preencher cMunFim automaticamente.`);
+    }
+  }
+
+  const aliasSheets=a.details.filter(d=>d&&d.sourceName&&norm(d.sourceName)!==norm(d.name));
+  if(aliasSheets.length)warnings.push(`Abas alternativas reconhecidas: ${aliasSheets.map(d=>`${d.sourceName} → ${d.name}`).join(' • ')}.`);
+  const stMap=computeStApuracao(a,c); const stDue=[...stMap.values()].filter(x=>x.totalPagar>0.005); if(stTotal>0)warnings.push(`ICMS-ST destacado nos documentos: ${money(stTotal)}. A versão 3.5 Perfil A gera E200/E210 por UF somente para documentos que efetivamente levam ST ao C190; NFC-e 65 é excluída dessa apuração.`);
+  for(const x of stDue){const pays=stPaymentsFor(x,a.period,c); if(pays.length&&pays.every(p=>p.auto))warnings.push(`E250 ${x.uf}: preenchimento automático Perfil A/PI (${pays.map(p=>`${p.codOr}/${p.codRec} ${money(p.amount)} venc. ${p.vcto}`).join(' • ')}).`); else for(const pmt of pays)validatePaymentST(pmt,pmt.amount).forEach(e=>errors.push(`E250 ${x.uf}: ${e} obrigatório quando houver ICMS-ST a recolher.`));}
+  if((a.summary.difal||0)>0||difalHint)warnings.push('DIFAL/EC 87 detectado. Não será somado ao débito/crédito normal do E110. C101/E300/E310/E316 ainda não são gerados; confira se a empresa/período exige essa apuração antes da transmissão.');
+  if((a.summary.funef||0)>0)warnings.push(`FUNEF identificado no resumo (${money(a.summary.funef)}). Não será somado ao débito/crédito normal do E110 nesta versão; a obrigação estadual específica deve ser conferida separadamente.`);
+  if((a.summary.antecipacao||0)>0)warnings.push(`Antecipação parcial identificada no resumo (${money(a.summary.antecipacao)}). Não será somada ao débito/crédito normal do E110; ajustes PI/E111/E116/E113, quando aplicáveis, devem ser tratados no módulo específico.`);
+
+  const calc=computeIcmsTotals(a), debResumo=a.summary.debitos, credResumo=a.summary.creditos;
+  if(debResumo!==undefined && Math.abs(num(debResumo)-calc.debitos)>0.02)warnings.push(`Conferência: débitos do Resumo ${money(debResumo)} × débitos que serão levados ao E110 pelos documentos ${money(calc.debitos)}. O TXT usará os documentos para manter C190/D190 e E110 coerentes.`);
+  if(credResumo!==undefined && Math.abs(num(credResumo)-calc.creditos)>0.02)warnings.push(`Conferência: créditos do Resumo ${money(credResumo)} × créditos que serão levados ao E110 pelas regras de TIPO/Cliente ${money(calc.creditos)}. O TXT usará as regras dos documentos.`);
+  if(calc.creditoSN>0)warnings.push(`Crédito do Simples incluído nas entradas TIPO N: ${money(calc.creditoSN)}. A coluna ICMS Crédito é conferida contra ICMS NFe + Crédito SN quando disponível.`);
+  const deb=calc.debitos, cred=calc.creditos;
+  if(calc.debitoDevCompras>0)warnings.push(`Devoluções de compras: ${money(calc.debitoDevCompras)} tratados como saídas e somados diretamente aos débitos documentais do E110.`);
+  const saldoAnt=Math.max(0,num(a.summary.saldoAnterior||0)), saldoBruto=deb-cred-saldoAnt, recolher=Math.max(0,saldoBruto), obrigacaoNormal=recolher+calc.debEsp;
+  validatePayment(payment(),obrigacaoNormal).forEach(x=>errors.push(`E116: ${x} obrigatório quando houver ICMS a recolher ou débito especial extemporâneo.`));
+  if(recolher<=0 && payment().codOr)warnings.push('E116 preenchido, mas a apuração calculada não possui ICMS a recolher; o registro não será gerado.');
+  const thirdReturnDocs=detailSheets.filter(d=>norm(d.sourceName)==='S-DEVOL TERC'||norm(d.sourceName)==='S DEVOL TERC').reduce((n,d)=>n+d.docs.size,0);
+  if(thirdReturnDocs)warnings.push(`ÓTIMA: ${thirdReturnDocs} documento(s) de S-Devol Terc são NF-e emitidas por terceiros. Mantidos como devolução de compra/saída conforme a regra fiscal definida; o PVA pode exibir advertência de IND_OPER para esses documentos.`);
+  warnings.push('C190: VL_RED_BC será preenchido automaticamente quando CST 020/070 tiver diferença positiva entre VL_OPR e VL_BC_ICMS. Se a base for igual à operação, a advertência do PVA pode permanecer e deve ser conferida com o CST da planilha.');
+  warnings.push('Entradas com CST/CSOSN terminados em 02/15 e alíquota zero podem continuar gerando advertência do PVA. O gerador não inventa alíquota; mantenha a conferência do XML/planilha.');
+  const mev=manualEValidation(a); errors.push(...mev.errors); warnings.push(...mev.warnings);
+  warnings.push('Pré-validação cobre os registros gerados por este protótipo. Regras estaduais e validações do PVA continuam sendo a conferência final.');
+  return {errors:[...new Set(errors)],warnings:[...new Set(warnings)]};
+}
+
+function profileARegimeAdjustments(a,calc){
+  const z={adjDeb:0,estCred:0,estDeb1:0,estDeb2:0}; if(!a||a.model?.code!=='REGIME')return z;
+  for(const name of a.summary.sources||[]){ const aoa=sheetAoa(state.workbook,name);
+    const get=(als)=>{const h=findLabelValue(aoa,als,8);return h?h.value:0;};
+    z.adjDeb=get(['DEBITO - ICMS SAIDAS OUTROS DEBITOS - NORMAL']);
+    z.estDeb1=get(['ESTORNO DEBITO ICMS NORMAL EFD']);
+    z.estDeb2=get(['ESTORNO TOTAL']);
+    if(z.adjDeb||z.estDeb1||z.estDeb2)break;
+  }
+  z.estCred=calc.creditos; return z;
+}
+
+function generateTxt(){
+  if(!isNoMovement() && !state.analysis) throw new Error("Importe a planilha.");
+  const c=company(), ac=accountant(), p=activePeriod(); const lines=[];
+  lines.push(rec("0000",c.codVer,c.codFin,p?.start||"",p?.end||"",c.name,c.cnpj,"",c.uf,c.ie,c.mun,"","",state.profile,c.indAtiv));
+  lines.push(rec("0001","0"));
+  lines.push(rec("0005",c.fantasy||c.name,c.cep,c.end,c.num,c.compl,c.bairro,c.fone,c.fax,c.email));
+  lines.push(rec("0100",ac.name,ac.cpf,ac.crc,ac.cnpj,ac.cep,ac.end,ac.num,ac.compl,ac.bairro,ac.fone,ac.fax,ac.email,ac.codMun));
+  const participantMap=new Map((isNoMovement()?[]:state.analysis.participants).map(x=>[x.doc,x]));
+  const participants=[...participantMap.values()];
+  participants.forEach(x=>{const self=x.doc===c.cnpj; lines.push(rec("0150",x.code,x.name,"01058",x.doc.length===14?x.doc:"",x.doc.length===11?x.doc:"",x.ie,self?(x.codMun||c.mun):x.codMun,x.suframa||"",self?(x.end||c.end):x.end,self?(x.num||c.num):x.num,self?(x.compl||c.compl):x.compl,self?(x.bairro||c.bairro):x.bairro));});
+
+  // 0190/0200: códigos internos são desdobrados por unidade quando a planilha usa o mesmo código com embalagens diferentes.
+  const detailForItems=isNoMovement()?[]:state.analysis.details.filter(d=>d && ["Entradas","Saidas","Devoluções de Vendas","Devoluções de Compras"].includes(d.name));
+  const itemCatalog=buildItemCatalog(detailForItems), refUnits=new Map();
+  for(const x of itemCatalog.values()) if(!refUnits.has(x.un))refUnits.set(x.un,{u:x.un,descr:x.un});
+  for(const u of refUnits.values()) lines.push(rec("0190",u.u,u.descr));
+  for(const x of itemCatalog.values()) lines.push(rec("0200",x.sped,x.descr,"","",x.un,"00",x.ncm,"","","",x.aliq?fmt2(x.aliq):"",""));
+  lines.push(rec("0990","__COUNT_BLOCK0__"));
+
+  // Bloco B é obrigatório no arquivo. Fora do DF, deve ser informado sem movimento.
+  lines.push(rec("B001","1"),rec("B990","2"));
+
+  const cLines=[]; cLines.push(rec("C001",isNoMovement()?"1":"0"));
+  const detailSheets=isNoMovement()?[]:state.analysis.details.filter(d=>d && ["Entradas","Saidas","Devoluções de Vendas","Devoluções de Compras"].includes(d.name));
+  for(const d of detailSheets){
+    for(const rows of d.docs.values()){
+      let doc=resolveDocument(aggregateDoc(rows,d.name),d.name,c); if(doc.resolveError)throw new Error(`Não foi possível resolver ${d.name} NF ${doc.num}: ${doc.resolveError}`); const t=doc.totals, codMod=modelCode(doc.especie);
+      const isNFCe=codMod==="65", codSit=codSitForDoc(doc,p);
+      const indPgto=doc.incoming?(doc.indEmit==='0'?'2':'1'):'0';
+      const mf=clean(doc.resolvedXml?.modFrete); const indFrt=['0','1','2','3','4','9'].includes(mf)?mf:(doc.incoming&&doc.indEmit==='0'?'0':(t.frete>0?'0':'9'));
+      const vlMerc=t.merc, dtES=codSit==='02'?'':entryExitDate(doc,p);
+      cLines.push(rec("C100",doc.incoming?"0":"1",doc.indEmit,isNFCe?"":doc.partCode,codMod,codSit,doc.serie,doc.num,doc.key,codSit==='02'?'':spedDate(doc.date),dtES,codSit==='02'?'':fmt2(t.doc),codSit==='02'?'':indPgto,codSit==='02'?'':fmt2(t.desc),"",codSit==='02'?'':fmt2(vlMerc),codSit==='02'?'':indFrt,codSit==='02'?'':fmt2(t.frete),"",codSit==='02'?'':fmt2(t.desp),codSit==='02'?'':fmt2(t.bc),codSit==='02'?'':fmt2(t.icms),(codSit==='02'||isNFCe)?"":fmt2(t.bcst),(codSit==='02'||isNFCe)?"":fmt2(t.st),(codSit==='02'||isNFCe)?"":fmt2(t.ipi),"","","",""));
+      if(shouldEmitC170(doc,codMod,codSit)){
+        rows.forEach((r,i)=>cLines.push(rec("C170",clean(field(r,"Nº Item XML"))||String(i+1),spedItemCode(r,itemCatalog),"",fmt2(itemQty(r)),normalizeUnit(itemUnit(r)),fmt2(itemTotal(r)),fmt2(field(r,"Desconto")),tipoFiscal(r)==="CONSUMO"?"1":"0",cst3(itemCstIcms(r)),cfopRow(r,doc.incoming),"",fmt2(icmsSpedBase(r,d.name)),fmt2(icmsSpedAliq(r,d.name)),fmt2(icmsSpedValue(r,d.name)),fmt2(field(r,"Base ICMS ST")),fmt2(field(r,"AL ST")),fmt2(field(r,"VL ICMS ST")),"0","","","","","",clean(field(r,"CST PIS")),"","","","","",clean(field(r,"CST COFINS")),"","","","","","","")));
+      }
+      const ag=new Map(); rows.forEach(r=>{ const aliqSped=icmsSpedAliq(r,d.name), cstSped=cst3(itemCstIcms(r)), cfopSped=cfopRow(r,doc.incoming), k=[cstSped,cfopSped,aliqSped].join("|"); if(!ag.has(k))ag.set(k,{cst:cstSped,cfop:cfopSped,aliq:aliqSped,opr:0,bc:0,icms:0,bcst:0,st:0,ipi:0}); const a=ag.get(k); a.opr+=itemTotal(r); a.bc+=icmsSpedBase(r,d.name); a.icms+=icmsSpedValue(r,d.name); a.bcst+=num(field(r,"Base ICMS ST")); a.st+=num(field(r,"VL ICMS ST")); a.ipi+=num(field(r,"Valor IPI")); });
+      for(const a of ag.values()){ const red=/^(020|070)$/.test(a.cst)?Math.max(0,a.opr-a.bc):0; cLines.push(rec("C190",a.cst,a.cfop,fmt2(a.aliq),fmt2(a.opr),fmt2(a.bc),fmt2(a.icms),fmt2(isNFCe?0:a.bcst),fmt2(isNFCe?0:a.st),fmt2(red),fmt2(isNFCe?0:a.ipi),"")); }
+    }
+  }
+  // NF-e/NFC-e próprias canceladas podem não aparecer na planilha de apuração.
+  // Quando o XML de evento 110111 for importado, gera-se o C100 mínimo com COD_SIT 02, como no SPED Perfil A de referência.
+  const existingKeys=new Set(); for(const l of cLines){if(l.startsWith('|C100|')){const p0=l.split('|'); if(p0[9])existingKeys.add(digits(p0[9]));}}
+  for(const key of state.cancelledKeys){ const issuer=keyIssuerCnpj(key); if(!sameCnpjBase(issuer,c.cnpj)||existingKeys.has(key))continue; const aamm=key.slice(2,6), yy=2000+Number(aamm.slice(0,2)), mm=Number(aamm.slice(2,4)); if(p&&(yy!==p.year||mm!==p.month))continue; const mod=key.slice(20,22), ser=key.slice(22,25), numDoc=String(Number(key.slice(25,34))); if(!['55','65'].includes(mod))continue; cLines.push(rec('C100','1','0','',mod,'02',ser,numDoc,key,'','','','','','','','','','','','','','','','','','','','')); }
+  cLines.push(rec("C990",String(cLines.length+1))); lines.push(...cLines);
+
+  const dSheet=isNoMovement()?null:state.analysis.details.find(d=>d&&d.name==="CTe FOB IA");
+  const dLines=[rec("D001",dSheet&&dSheet.rows.length?"0":"1")];
+  if(dSheet&&dSheet.rows.length){
+    const groups=new Map(); dSheet.validRows.forEach(r=>{ const n=clean(field(r,"Num CTE","Número Fiscal")); if(!n)return; if(!groups.has(n))groups.set(n,[]); groups.get(n).push(r); });
+    for(const rows of groups.values()){
+      const r=rows[0], v=num(field(r,"Valor CTE")), aliq=num(field(r,"% Aliq Cte")); const doc=digits(field(r,"CNPJ Fornecedor"));
+      const key=digits(field(r,"Chave Acesso","CHV_CTE","Chave CTe","Chave CT-e")), mun=cteMunicipios(r), orig=mun.orig, dest=mun.dest;
+      const bc=num(field(r,"BC ICMS","Base ICMS","BC ICMS CTe")), ic=num(field(r,"ICMS","Valor ICMS","ICMS CTe"));
+      dLines.push(rec("D100","0","1",doc?`P${doc}`:"","57","00",clean(field(r,"Série")),"",clean(field(r,"Num CTE","Número CTE")),key,spedDate(field(r,"Data")),spedDate(field(r,"Data")),"0","",fmt2(v),"","0",fmt2(v),fmt2(bc),fmt2(ic),"","","",orig,dest));
+      dLines.push(rec("D190","000",digits(field(r,"CFOP Dominio","CFOP"))||"2352",fmt2(aliq),fmt2(v),fmt2(bc),fmt2(ic),"0,00",""));
+    }
+  }
+  dLines.push(rec("D990",String(dLines.length+1))); lines.push(...dLines);
+
+  const s=isNoMovement()?{}:state.analysis.summary, eLines=[rec("E001","0")];
+  eLines.push(rec("E100",p?.start||"",p?.end||""));
+  const e110=e110WithManual(isNoMovement()?noMovementAnalysis():state.analysis);
+  eLines.push(rec("E110",fmt2(e110.deb),fmt2(e110.ajDocDeb),fmt2(e110.totAjDeb),fmt2(e110.estCred),fmt2(e110.cred),fmt2(e110.ajDocCred),fmt2(e110.totAjCred),fmt2(e110.estDeb),fmt2(e110.saldoAnt),fmt2(e110.saldoApurado),fmt2(e110.ded),fmt2(e110.recol),fmt2(e110.saldoTrans),fmt2(e110.debEsp)));
+  const calcIcms=isNoMovement()?{debitos:0,creditos:0,debEsp:0}:computeIcmsTotals(state.analysis);
+  const aj=isNoMovement()?{adjDeb:0,estCred:0,estDeb1:0,estDeb2:0}:profileARegimeAdjustments(state.analysis,calcIcms);
+  const autoE111=[]; if(aj.estCred>0)autoE111.push({cod:'PI010018',desc:'',value:aj.estCred}); if(aj.estDeb1>0)autoE111.push({cod:'PI030008',desc:'',value:aj.estDeb1}); if(aj.adjDeb>0)autoE111.push({cod:'PI009999',desc:'ICMS Normal não destacado em NFe',value:aj.adjDeb}); if(aj.estDeb2>0)autoE111.push({cod:'PI030010',desc:'',value:aj.estDeb2});
+  const children112=manualERecords('E112'),children113=manualERecords('E113'), emittedChildCodes=new Set();
+  const pushE111=(r)=>{eLines.push(rec('E111',r.cod,r.desc||'',fmt2(r.value)));const pc=norm(r.cod);if(!emittedChildCodes.has(pc)){for(const x of children112.filter(z=>norm(z.parentCode)===pc))eLines.push(rec('E112',x.numDA||'',x.numProc||'',x.indProc||'',x.proc||'',x.txt||''));for(const x of children113.filter(z=>norm(z.parentCode)===pc))eLines.push(rec('E113',x.codPart||'',x.codMod||'',x.ser||'',x.sub||'',x.numDoc||'',x.dtDoc||'',x.codItem||'',fmt2(x.value),x.chv||''));emittedChildCodes.add(pc);}};
+  autoE111.forEach(pushE111); manualERecords('E111').forEach(pushE111);
+  for(const x of manualERecords('E115'))eLines.push(rec('E115',x.cod,fmt2(x.value),x.desc||''));
+  const mesRef=p?`${String(p.month).padStart(2,"0")}${p.year}`:""; const manual116=manualERecords('E116');
+  if(manual116.length){for(const x of manual116)eLines.push(rec('E116',x.codOr,fmt2(x.value),x.vcto,x.codRec,x.numProc||'',x.indProc||'',x.proc||'',x.txtCompl||'',x.mesRef||mesRef));}
+  else {const obrigacaoNormal=e110.recol+e110.debEsp;if(obrigacaoNormal>0){const pay=payment();eLines.push(rec('E116',pay.codOr,fmt2(obrigacaoNormal),pay.vcto,pay.codRec,'','','','',mesRef));}}
+  const autoSt=isNoMovement()?new Map():computeStApuracao(state.analysis,c); const ufSet=new Set([...autoSt.keys(),...manualERecords('E210').map(x=>norm(x.uf)),...manualERecords('E220').map(x=>norm(x.uf)),...manualERecords('E250').map(x=>norm(x.uf))].filter(Boolean)); const mesRefST=mesRef;
+  for(const uf of [...ufSet].sort()){
+    const x=stBaseForUf(autoSt.get(uf),uf); eLines.push(rec('E200',uf,p?.start||'',p?.end||''));
+    eLines.push(rec('E210',x.indMov||'1',fmt2(x.prevCred),fmt2(x.devol),fmt2(x.ressarc),fmt2(x.outCred),fmt2(x.ajCred),fmt2(x.ret),fmt2(x.outDeb),fmt2(x.ajDeb),fmt2(x.saldoDev),fmt2(x.ded),fmt2(x.recol),fmt2(x.saldoCred),fmt2(x.debEsp)));
+    const e230=manualERecords('E230').filter(z=>norm(z.uf)===uf),e240=manualERecords('E240').filter(z=>norm(z.uf)===uf),emitted220=new Set();
+    for(const r of manualERecords('E220').filter(z=>norm(z.uf)===uf)){eLines.push(rec('E220',r.cod,r.desc||'',fmt2(r.value)));const pc=norm(r.cod);if(!emitted220.has(pc)){for(const y of e230.filter(z=>norm(z.parentCode)===pc))eLines.push(rec('E230',y.numDA||'',y.numProc||'',y.indProc||'',y.proc||'',y.txt||''));for(const y of e240.filter(z=>norm(z.parentCode)===pc))eLines.push(rec('E240',y.codPart||'',y.codMod||'',y.ser||'',y.sub||'',y.numDoc||'',y.dtDoc||'',y.codItem||'',fmt2(y.value),y.chv||''));emitted220.add(pc);}}
+    const manual250=manualERecords('E250').filter(z=>norm(z.uf)===uf); if(manual250.length){for(const q of manual250)eLines.push(rec('E250',q.codOr,fmt2(q.value),q.vcto,q.codRec,q.numProc||'',q.indProc||'',q.proc||'',q.txtCompl||'',q.mesRef||mesRefST));}else{for(const q of stPaymentsFor(x,p,c))eLines.push(rec('E250',q.codOr,fmt2(q.amount),q.vcto,q.codRec,'','','','',mesRefST));}
+  }
+  eLines.push(rec("E990",String(eLines.length+1))); lines.push(...eLines);
+
+  // Bloco G (CIAP) é obrigatório no arquivo, ainda que sem movimento.
+  lines.push(rec("G001","1"),rec("G990","2"));
+  lines.push(rec("H001","1"),rec("H990","2"));
+  lines.push(rec("K001","1"),rec("K990","2"));
+  lines.push(rec("1001","0"),rec("1010","N","N","N","N","N","N","N","N","N","N","N","N","N"),rec("1990","3"));
+
+  // Corrige contagem do Bloco 0.
+  const idx0990=lines.findIndex(l=>l.startsWith("|0990|")); if(idx0990>=0) lines[idx0990]=rec("0990",String(idx0990+1));
+
+  // Bloco 9: contabiliza registros existentes e os próprios controles.
+  const counts={}; for(const l of lines){ const code=l.split("|")[1]; counts[code]=(counts[code]||0)+1; }
+  const codes=new Set(Object.keys(counts)); ["9001","9900","9990","9999"].forEach(x=>codes.add(x));
+  const ordered=[...codes].sort(); const qtd9900=ordered.length;
+  const block9=[rec("9001","0")];
+  for(const code of ordered){ let q=counts[code]||0; if(code==="9001"||code==="9990"||code==="9999")q=1; if(code==="9900")q=qtd9900; block9.push(rec("9900",code,String(q))); }
+  const qtdLin9=block9.length+2; block9.push(rec("9990",String(qtdLin9))); const total=lines.length+block9.length+1; block9.push(rec("9999",String(total))); lines.push(...block9);
+  return lines.join("\r\n")+"\r\n";
+}
+
+function classifyValidationErrors(errors){
+  const editable=[],hard=[];
+  const editablePatterns=[
+    /^0150 /i,
+    /^D100 CT-e .*: COD_MUN_(ORIG|DEST) obrigatório/i,
+    /^E116 /i,/^E250 /i,
+    /^C170 .*: (QTD|UNID) /i,
+    /^C100 .*: COD_PART obrigatório/i
+  ];
+  for(const e of errors||[]){(editablePatterns.some(rx=>rx.test(e))?editable:hard).push(e);}
+  return {editable,hard};
+}
+function renderAnalysis(a){
+  if(!a)a=noMovementAnalysis();
+  document.querySelectorAll('[data-panel="results"]').forEach(x=>x.classList.remove("hidden"));
+  $("importInfo").classList.remove("hidden"); $("importInfo").innerHTML=`Modelo reconhecido: <b>${a.model.name}</b> · Competência: <b>${a.period?String(a.period.month).padStart(2,"0")+"/"+a.period.year:"não identificada"}</b>${isNoMovement()?' · <b>SEM MOVIMENTO</b>':''}`;
+  const totals={docs:0,items:0}; a.details.filter(Boolean).forEach(d=>{totals.docs+=d.docs.size;totals.items+=d.validRows.length;});
+  $("kpis").innerHTML=[['Documentos',totals.docs],['Itens',totals.items],['Participantes',a.participants.length],['Produtos',a.products.length]].map(([l,v])=>`<div class="kpi"><span>${l}</span><strong>${Number(v).toLocaleString('pt-BR')}</strong></div>`).join('');
+  const s=a.summary, calc=computeIcmsTotals(a), metrics=[['Débitos documentais (E110)',calc.debitos],['Créditos documentais (E110)',calc.creditos],[regraDevVenda()==='NORMAL'?'Crédito devol. vendas - Normal (TIPO N / ICMS NFe)':'Crédito devol. vendas - N',calc.creditoDevVendaN],[regraDevVenda()==='NORMAL'?'Crédito devol. vendas - Regime (não aplicável)':'Crédito devol. vendas - RN/RST Cliente 2',calc.creditoDevVendaRegime],['Débito - devoluções de compras',calc.debitoDevCompras],['Crédito SN incluído',calc.creditoSN],['Crédito mês anterior',s.saldoAnterior],['Débitos no Resumo',s.debitos],['Créditos no Resumo',s.creditos],['ICMS a recolher no Resumo',s.icmsRecolher],['FUNEF a recolher',s.funef],['Faturamento líquido',s.faturamentoLiquido]];
+  $("summaryMetrics").innerHTML=isNoMovement()?`<div class="metric"><span>Débitos</span><b>R$ 0,00</b></div><div class="metric"><span>Créditos</span><b>R$ 0,00</b></div><div class="metric"><span>ICMS a recolher</span><b>R$ 0,00</b></div>`:(metrics.filter(x=>x[1]!==undefined).map(([l,v])=>`<div class="metric"><span>${l}</span><b>${money(v)}</b></div>`).join('') || `<div class="validation warn">Não encontrei uma apuração final padronizada. O TXT sairá apenas com a estrutura disponível.</div>`);
+  renderManualERecords();
+  const report=strictPreValidation(); state.strictReport=report;
+  const validations=[], cls=classifyValidationErrors(report.errors);
+  if(!report.errors.length) validations.push({t:'ok',m:'Pré-validador: nenhum bloqueio obrigatório detectado para a apuração normal suportada.'});
+  cls.hard.slice(0,20).forEach(m=>validations.push({t:'bad',m:`${m} <b>[bloqueio]</b>`}));
+  cls.editable.slice(0,20).forEach(m=>validations.push({t:'soft',m:`${m} <b>[editável / corrigível no PVA]</b>`}));
+  if(cls.hard.length>20||cls.editable.length>20)validations.push({t:'bad',m:`Há mais ${Math.max(0,report.errors.length-40)} pendência(s) não exibida(s) nesta lista.`});
+  report.warnings.forEach(m=>validations.push({t:'warn',m}));
+  $("validationList").innerHTML=validations.map(v=>`<div class="validation ${v.t}">${v.m}</div>`).join('');
+  const bad=cls.hard.length>0, editable=cls.editable.length>0, warns=report.warnings.length>0; const st=$("validationStatus"); st.className=`status ${bad?'bad':editable||warns?'warn':'ok'}`; st.textContent=bad?`${cls.hard.length} bloqueio(s) crítico(s)`:editable?`${cls.editable.length} pendência(s) editável(is)`:warns?'Sem bloqueios • revisar avisos':'Pronto para gerar';
+  $("sheetTable").innerHTML=a.details.filter(Boolean).map(d=>{const origem=d.sourceName&&norm(d.sourceName)!==norm(d.name)?`<small style="display:block;color:var(--muted)">${d.sourceName}</small>`:'';return `<tr><td><b>${d.name}</b>${origem}</td><td>${d.headerRow>=0?'Linha '+(d.headerRow+1):'—'}</td><td>${d.validRows.length.toLocaleString('pt-BR')}</td><td>${d.docs.size.toLocaleString('pt-BR')}</td><td><span class="pill ${d.headerRow>=0?'ok':'warn'}">${d.headerRow>=0?'Reconhecida':'Revisar'}</span></td></tr>`;}).join('');
+  const cNow=company();
+  const pRows=[...a.participants].sort((x,y)=>{const xm=participantMissing(x,cNow).length?0:1,ym=participantMissing(y,cNow).length?0:1;return xm-ym||x.name.localeCompare(y.name,'pt-BR');});
+  $("participantTable").innerHTML=pRows.map(p=>{const miss=participantMissing(p,cNow),ok=!miss.length,docLabel=isSyntheticParticipant(p.doc)?`Sem CNPJ/CPF • ${p.code}`:p.doc;return `<tr><td><b>${p.name}</b></td><td>${docLabel}</td><td>${p.codMun||'—'}</td><td>${p.end||'—'}</td><td>${p.source||'PLANILHA'}</td><td><span class="pill ${ok?'ok':'warn'}">${ok?'Completo':'Falta '+miss.join(' / ')}</span></td><td><button class="btn-mini" type="button" onclick="openParticipantEditor('${p.doc}')">Editar</button></td></tr>`;}).join('');
+  const dSheet=a.details.find(d=>d&&d.name==='CTe FOB IA');
+  const cteRows=[];
+  if(dSheet){const seen=new Set(); for(const r of dSheet.validRows){const mk=cteManualKey(r); if(seen.has(mk))continue; seen.add(mk); const m=cteMunicipios(r), n=clean(field(r,'Num CTE','Número CTE','Número Fiscal')), serie=clean(field(r,'Série')), key=digits(field(r,'Chave Acesso','CHV_CTE','Chave CTe','Chave CT-e')), ok=validMunicipio(m.orig)&&validMunicipio(m.dest); cteRows.push({mk,n,serie,key,orig:m.orig,dest:m.dest,source:m.source,ok});}}
+  $('cteEditCard').classList.toggle('hidden',!cteRows.length);
+  $('cteTable').innerHTML=cteRows.map(x=>`<tr><td><b>${x.n||'—'}</b></td><td>${x.key?x.key.slice(0,10)+'…'+x.key.slice(-8):'—'}</td><td>${x.orig||'—'}</td><td>${x.dest||'—'}</td><td>${x.source}</td><td><span class="pill ${x.ok?'ok':'warn'}">${x.ok?'Completo':'Pendente'}</span></td><td><button class="btn-mini" type="button" onclick="openCteEditor('${encodeURIComponent(x.mk)}')">Editar</button></td></tr>`).join('');
+  const overrideBox=$('overrideBox'), allow=$('allowEditableErrors');
+  overrideBox.classList.toggle('hidden',!editable||bad);
+  if(bad){allow.checked=false;}
+  const canGenerate=!bad && (!editable || allow.checked);
+  $("previewBtn").disabled=!canGenerate; $("downloadBtn").disabled=!canGenerate;
+}
+
+function openParticipantEditor(doc){
+  const p=state.analysis?.participants?.find(x=>clean(x.doc)===clean(doc)); if(!p)return;
+  $('pmDoc').value=p.doc; $('pmDocView').value=isSyntheticParticipant(p.doc)?`${p.code} (sem CNPJ/CPF)`:p.doc; $('pmName').value=p.name||''; $('pmIe').value=p.ie||''; $('pmUf').value=p.uf||''; $('pmCodMun').value=p.codMun||''; $('pmEnd').value=p.end||''; $('pmNum').value=p.num||''; $('pmCompl').value=p.compl||''; $('pmBairro').value=p.bairro||'';
+  $('participantModal').classList.remove('hidden');
+}
+function closeParticipantEditor(){$('participantModal').classList.add('hidden');}
+function saveParticipantEditor(){
+  const doc=clean($('pmDoc').value); if(!doc)return;
+  const data={name:clean($('pmName').value),ie:clean($('pmIe').value),uf:clean($('pmUf').value).toUpperCase(),codMun:digits($('pmCodMun').value),end:clean($('pmEnd').value),num:clean($('pmNum').value),compl:clean($('pmCompl').value),bairro:clean($('pmBairro').value)};
+  state.manualPartyMap.set(doc,data); saveManualParties();
+  if(state.analysis){state.analysis.participants=buildParticipants(state.analysis.details,state.analysis.cadMap,state.xmlPartyMap);renderAnalysis(state.analysis);}
+  closeParticipantEditor(); toast('Participante salvo. O cadastro manual será usado no registro 0150.');
+}
+function loadManualCtes(){try{const raw=JSON.parse(localStorage.getItem('contalger_sped_manual_cte')||'{}'); state.manualCteMap=new Map(Object.entries(raw));}catch(e){state.manualCteMap=new Map();}}
+function saveManualCtes(){try{localStorage.setItem('contalger_sped_manual_cte',JSON.stringify(Object.fromEntries(state.manualCteMap)));}catch(e){}}
+function findCteRowByManualKey(mk){const d=state.analysis?.details?.find(x=>x&&x.name==='CTe FOB IA'); return d?.validRows?.find(r=>cteManualKey(r)===mk)||null;}
+function openCteEditor(encoded){const mk=decodeURIComponent(encoded), r=findCteRowByManualKey(mk); if(!r)return; const m=cteMunicipios(r); $('cmKey').value=mk; $('cmNum').value=clean(field(r,'Num CTE','Número CTE','Número Fiscal')); $('cmSerie').value=clean(field(r,'Série')); $('cmChave').value=digits(field(r,'Chave Acesso','CHV_CTE','Chave CTe','Chave CT-e')); $('cmOrig').value=m.orig||''; $('cmDest').value=m.dest||''; $('cteModal').classList.remove('hidden');}
+function closeCteEditor(){$('cteModal').classList.add('hidden');}
+function saveCteEditor(){const mk=$('cmKey').value, orig=digits($('cmOrig').value), dest=digits($('cmDest').value); if(orig&&!validMunicipio(orig)){alert('COD_MUN_ORIG deve ter 7 dígitos e ser um código IBGE válido.');return;} if(dest&&!validMunicipio(dest)){alert('COD_MUN_DEST deve ter 7 dígitos e ser um código IBGE válido.');return;} state.manualCteMap.set(mk,{orig,dest}); saveManualCtes(); closeCteEditor(); if(state.analysis)renderAnalysis(state.analysis); toast('Municípios do CT-e salvos.');}
+async function importFile(file){
+  if(isNoMovement()){toast('No modo sem movimento não é necessário importar planilha.'); return;}
+  if(typeof XLSX==='undefined'){ alert('A biblioteca de leitura do Excel não carregou. Conecte-se à internet e recarregue a página.'); return; }
+  const buf=await file.arrayBuffer(); const wb=XLSX.read(buf,{type:'array',cellDates:false,cellNF:false,cellText:false}); state.workbook=wb; state.file=file;
+  const names=wb.SheetNames, model=detectModel(names), specs=detailSheetSpecs(wb);
+  loadConfigFromWorkbook(wb);
+  const period=periodFromFilename(file.name); const details=specs.map(s=>s.cte?analyzeCTeSheet(wb,s.source):analyzeDetailSheet(wb,s.source,period,s.logical)).filter(Boolean); const summary=extractSummary(wb); const cadMap=cadastroParticipants(wb); const participants=buildParticipants(details,cadMap,state.xmlPartyMap), products=buildProducts(details), units=buildUnits(products);
+  state.analysis={names,model,details,summary,period,participants,products,units,cadMap};
+  $("fileName").textContent=file.name;
+  if(!$("empresaNome").value) $("empresaNome").value=suggestionCompanyName(file.name,wb);
+  renderAnalysis(state.analysis); toast('Planilha importada e analisada.');
+}
+
+function configObject(){return {company:company(),accountant:accountant(),payment:payment(),paymentST:paymentST(),regraDevVenda:regraDevVenda(),mode:isNoMovement()?'SEM':'MOV',semPeriod:{month:$('semMovMes').value,year:$('semMovAno').value}};}
+function setForm(data){
+  const c=data?.company||{}, a=data?.accountant||{}, pay=data?.payment||{}, payST=data?.paymentST||{};
+  const cm={empresaNome:'name',empresaFantasia:'fantasy',empresaCnpj:'cnpj',empresaIe:'ie',empresaUf:'uf',empresaMun:'mun',empresaCep:'cep',empresaEnd:'end',empresaNum:'num',empresaCompl:'compl',empresaBairro:'bairro',empresaFone:'fone',empresaFax:'fax',empresaEmail:'email',codFin:'codFin',indAtiv:'indAtiv',codVer:'codVer'};
+  const am={contNome:'name',contCpf:'cpf',contCrc:'crc',contCnpj:'cnpj',contCep:'cep',contEnd:'end',contNum:'num',contCompl:'compl',contBairro:'bairro',contFone:'fone',contFax:'fax',contEmail:'email',contMun:'codMun'};
+  Object.entries(cm).forEach(([id,k])=>{if(c[k]!==undefined&&c[k]!==null&&c[k]!=="")$(id).value=c[k];}); Object.entries(am).forEach(([id,k])=>{if(a[k]!==undefined&&a[k]!==null&&a[k]!=="")$(id).value=a[k];});
+  if(pay.codOr) $('e116CodOr').value=pay.codOr; if(pay.vcto) $('e116Vcto').value=pay.vcto; if(pay.codRec) $('e116CodRec').value=pay.codRec; if(payST.codOr) $('e250CodOr').value=payST.codOr; if(payST.vcto) $('e250Vcto').value=payST.vcto; if(payST.codRec) $('e250CodRec').value=payST.codRec;
+  if(data?.regraDevVenda && $('regraDevVenda')) $('regraDevVenda').value=data.regraDevVenda; if(data?.semPeriod?.month)$('semMovMes').value=data.semPeriod.month; if(data?.semPeriod?.year)$('semMovAno').value=data.semPeriod.year; if(data?.mode){const r=document.querySelector(`input[name="movimento"][value="${data.mode}"]`);if(r)r.checked=true;}
+}
+function saveCompany(){ localStorage.setItem('contalger_sped_config',JSON.stringify(configObject())); toast('Cadastro SPED salvo neste navegador.'); if(state.analysis)renderAnalysis(state.analysis); }
+function loadCompany(){ try{ const d=JSON.parse(localStorage.getItem('contalger_sped_config')||localStorage.getItem('contalger_sped_company')||'{}'); if(d.company||d.accountant)setForm(d); else setForm({company:d}); }catch(e){} }
+function loadConfigFromWorkbook(wb){
+  const name=wb.SheetNames.find(n=>norm(n)==="CONFIG SPED"); if(!name)return; const aoa=sheetAoa(wb,name); const flat={}; for(const r of aoa){const k=norm(r[0]); if(k)flat[k]=r[1];}
+  setForm({company:{name:flat['EMPRESA_RAZAO'],fantasy:flat['EMPRESA_FANTASIA'],cnpj:flat['EMPRESA_CNPJ'],ie:flat['EMPRESA_IE'],uf:flat['EMPRESA_UF'],mun:flat['EMPRESA_COD_MUN'],cep:flat['EMPRESA_CEP'],end:flat['EMPRESA_END'],num:flat['EMPRESA_NUM'],compl:flat['EMPRESA_COMPL'],bairro:flat['EMPRESA_BAIRRO'],fone:flat['EMPRESA_FONE'],fax:flat['EMPRESA_FAX'],email:flat['EMPRESA_EMAIL'],codFin:flat['COD_FIN'],indAtiv:flat['IND_ATIV'],codVer:flat['COD_VER']},accountant:{name:flat['CONT_NOME'],cpf:flat['CONT_CPF'],crc:flat['CONT_CRC'],cnpj:flat['CONT_CNPJ'],cep:flat['CONT_CEP'],end:flat['CONT_END'],num:flat['CONT_NUM'],compl:flat['CONT_COMPL'],bairro:flat['CONT_BAIRRO'],fone:flat['CONT_FONE'],fax:flat['CONT_FAX'],email:flat['CONT_EMAIL'],codMun:flat['CONT_COD_MUN']},regraDevVenda:flat['REGRA_DEV_VENDA'],payment:{codOr:flat['E116_COD_OR'],vcto:flat['E116_DT_VCTO'],codRec:flat['E116_COD_REC']},paymentST:{codOr:flat['E250_COD_OR'],vcto:flat['E250_DT_VCTO'],codRec:flat['E250_COD_REC']}});
+}
+function exportCadastroWorkbook(){
+  if(!state.workbook||!state.analysis)return; const wb=state.workbook, c=company(), a=accountant();
+  const configRows=[['CAMPO','VALOR'],['EMPRESA_RAZAO',c.name],['EMPRESA_FANTASIA',c.fantasy],['EMPRESA_CNPJ',c.cnpj],['EMPRESA_IE',c.ie],['EMPRESA_UF',c.uf],['EMPRESA_COD_MUN',c.mun],['EMPRESA_CEP',c.cep],['EMPRESA_END',c.end],['EMPRESA_NUM',c.num],['EMPRESA_COMPL',c.compl],['EMPRESA_BAIRRO',c.bairro],['EMPRESA_FONE',c.fone],['EMPRESA_FAX',c.fax],['EMPRESA_EMAIL',c.email],['COD_FIN',c.codFin],['IND_ATIV',c.indAtiv],['COD_VER',c.codVer],['REGRA_DEV_VENDA',regraDevVenda()],['CONT_NOME',a.name],['CONT_CPF',a.cpf],['CONT_CRC',a.crc],['CONT_CNPJ',a.cnpj],['CONT_CEP',a.cep],['CONT_END',a.end],['CONT_NUM',a.num],['CONT_COMPL',a.compl],['CONT_BAIRRO',a.bairro],['CONT_FONE',a.fone],['CONT_FAX',a.fax],['CONT_EMAIL',a.email],['CONT_COD_MUN',a.codMun],['E116_COD_OR',payment().codOr],['E116_DT_VCTO',$('e116Vcto').value],['E116_COD_REC',payment().codRec],['E250_COD_OR',paymentST().codOr],['E250_DT_VCTO',$('e250Vcto').value],['E250_COD_REC',paymentST().codRec]];
+  const cadRows=[['COD_PART','NOME','CNPJ','CPF','IE','UF','COD_MUN','ENDERECO','NUM','COMPL','BAIRRO','SUFRAMA']];
+  for(const p of state.analysis.participants){const self=p.doc===c.cnpj;cadRows.push([p.code,p.name,p.doc.length===14?p.doc:'',p.doc.length===11?p.doc:'',p.ie,p.uf,self?(p.codMun||c.mun):p.codMun,self?(p.end||c.end):p.end,self?(p.num||c.num):p.num,self?(p.compl||c.compl):p.compl,self?(p.bairro||c.bairro):p.bairro,p.suframa||'']);}
+  const replace=(name,ws)=>{if(wb.Sheets[name]){const i=wb.SheetNames.indexOf(name);if(i>=0)wb.SheetNames.splice(i,1);delete wb.Sheets[name];}XLSX.utils.book_append_sheet(wb,ws,name);};
+  replace('Config SPED',XLSX.utils.aoa_to_sheet(configRows)); replace('Cadastro SPED',XLSX.utils.aoa_to_sheet(cadRows));
+  const base=(state.file?.name||'APURACAO.xlsx').replace(/\.xlsx?$/i,''); XLSX.writeFile(wb,`${base}_CADASTRO_SPED.xlsx`); toast('Planilha preparada. Preencha os campos pendentes e reimporte o mesmo arquivo.');
+}
+function refreshProfile(){ state.profile='A'; const st=$('profileStatus'); if(st){st.className='status ok';st.textContent='Perfil A ativo';} if(isNoMovement())renderAnalysis(noMovementAnalysis()); else if(state.analysis)renderAnalysis(state.analysis); }
+function refreshMovementMode(){
+  const sem=isNoMovement(), st=$('movementStatus'); st.className=`status ${sem?'warn':'ok'}`; st.textContent=sem?'Sem movimento':'Com movimento';
+  $('semMovPeriodo').style.display=sem?'grid':'none'; $('dropzone').style.opacity=sem?'.55':'1'; $('xmlDropzone').style.opacity=sem?'.55':'1';
+  if(sem)renderAnalysis(noMovementAnalysis()); else if(state.analysis)renderAnalysis(state.analysis); else document.querySelectorAll('[data-panel="results"]').forEach(x=>x.classList.add('hidden'));
+}
+
+function makeTxt(){
+  const report=strictPreValidation(); state.strictReport=report; const cls=classifyValidationErrors(report.errors);
+  if(cls.hard.length){
+    alert(`O TXT foi BLOQUEADO por ${cls.hard.length} pendência(s) crítica(s).\n\n${cls.hard.slice(0,14).join('\n')}\n\nCorrija os bloqueios críticos antes de gerar.`); renderAnalysis(isNoMovement()?noMovementAnalysis():state.analysis); return null;
+  }
+  if(cls.editable.length && !$('allowEditableErrors').checked){
+    alert(`Existem ${cls.editable.length} pendência(s) editável(is). Corrija na própria tela ou marque “Gerar mesmo com pendências editáveis” se pretende ajustar depois no PVA.`); renderAnalysis(isNoMovement()?noMovementAnalysis():state.analysis); return null;
+  }
+  if(cls.editable.length && !confirm(`O arquivo será gerado com ${cls.editable.length} pendência(s) editável(is) que ainda poderão causar erro no PVA.\n\nVocê confirma que pretende corrigi-las diretamente no PVA/SPED?`)) return null;
+  state.txt=generateTxt();
+  const structural=validateTxtStructure(state.txt);
+  if(structural.length){alert(`A pré-validação estrutural encontrou ${structural.length} erro(s). O TXT não será liberado.\n\n${structural.slice(0,12).join('\n')}`);return null;}
+  return state.txt;
+}
+function downloadTxt(){ const txt=makeTxt(); if(!txt)return; const p=activePeriod(); const name=(company().name||'EMPRESA').replace(/[^A-Za-z0-9À-ÿ]+/g,'_').replace(/^_|_$/g,''); const comp=p?`${String(p.month).padStart(2,'0')}_${p.year}`:'COMPETENCIA'; const blob=new Blob([txt],{type:'text/plain;charset=windows-1252'}); const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download=`SPED_FISCAL_${comp}_${name}_PROTOTIPO.txt`; a.click(); setTimeout(()=>URL.revokeObjectURL(a.href),1000); toast('TXT gerado após pré-validação da apuração normal e da estrutura do arquivo.'); }
+function previewTxt(){ const txt=makeTxt(); if(!txt)return; $("txtPreview").textContent=txt.length>120000?txt.slice(0,120000)+'\n... PRÉVIA LIMITADA ...':txt; $("txtPanel").classList.remove('hidden'); $("txtPanel").scrollIntoView({behavior:'smooth'}); }
+
+loadManualParties(); loadManualCtes(); loadCodeCatalog();
+loadManualERecords(); loadCompany(); document.querySelectorAll('input[name="perfil"]').forEach(r=>r.addEventListener('change',refreshProfile)); document.querySelectorAll('input[name="movimento"]').forEach(r=>r.addEventListener('change',refreshMovementMode)); ['semMovMes','semMovAno'].forEach(id=>$(id).addEventListener('change',refreshMovementMode));
+['empresaNome','empresaFantasia','empresaCnpj','empresaIe','empresaUf','empresaMun','empresaCep','empresaEnd','empresaNum','empresaCompl','empresaBairro','empresaFone','empresaFax','empresaEmail','codFin','indAtiv','codVer','regraDevVenda','contNome','contCpf','contCrc','contCnpj','contCep','contEnd','contNum','contCompl','contBairro','contFone','contFax','contEmail','contMun','e116CodOr','e116Vcto','e116CodRec'].forEach(id=>{const el=$(id); if(el)el.addEventListener('change',()=>{if(state.analysis)renderAnalysis(state.analysis);});});
+$('addManualE').addEventListener('click',()=>openManualEEditor()); $('clearManualE').addEventListener('click',clearManualE); $('meReg').addEventListener('change',()=>renderManualEFields($('meReg').value,{})); $('meCancel').addEventListener('click',closeManualEEditor); $('meSave').addEventListener('click',saveManualEEditor); $('manualEModal').addEventListener('click',e=>{if(e.target===$('manualEModal'))closeManualEEditor();});
+$('ccSave').addEventListener('click',saveCatalogCode); $('ccReset').addEventListener('click',resetCodeCatalog);
+$("fileInput").addEventListener('change',e=>e.target.files[0]&&importFile(e.target.files[0]));
+$("xmlInput").addEventListener('change',e=>e.target.files&&importXmlFiles(e.target.files));
+const xdz=$("xmlDropzone"); ['dragenter','dragover'].forEach(ev=>xdz.addEventListener(ev,e=>{e.preventDefault();xdz.classList.add('drag')})); ['dragleave','drop'].forEach(ev=>xdz.addEventListener(ev,e=>{e.preventDefault();xdz.classList.remove('drag')})); xdz.addEventListener('drop',e=>{if(e.dataTransfer.files?.length)importXmlFiles(e.dataTransfer.files);});
+const dz=$("dropzone"); ['dragenter','dragover'].forEach(ev=>dz.addEventListener(ev,e=>{e.preventDefault();dz.classList.add('drag')})); ['dragleave','drop'].forEach(ev=>dz.addEventListener(ev,e=>{e.preventDefault();dz.classList.remove('drag')})); dz.addEventListener('drop',e=>{const f=e.dataTransfer.files[0]; if(f)importFile(f);});
+$("saveCompany").addEventListener('click',saveCompany); $("downloadBtn").addEventListener('click',downloadTxt); $("previewBtn").addEventListener('click',previewTxt); $("closePreview").addEventListener('click',()=>$("txtPanel").classList.add('hidden'));
+$("pmCancel").addEventListener('click',closeParticipantEditor); $("pmSave").addEventListener('click',saveParticipantEditor); $("participantModal").addEventListener('click',e=>{if(e.target===$("participantModal"))closeParticipantEditor();});
+$("cmCancel").addEventListener('click',closeCteEditor); $("cmSave").addEventListener('click',saveCteEditor); $("cteModal").addEventListener('click',e=>{if(e.target===$("cteModal"))closeCteEditor();});
+$("allowEditableErrors").addEventListener('change',()=>{if(state.analysis)renderAnalysis(state.analysis);});
+
+</script>
+</body>
+</html>
